@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.5.0)
+  - BLMultiColorLoader (0.1.6)
+  - ReachabilitySwift (3)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - BLMultiColorLoader
+  - ReachabilitySwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - BLMultiColorLoader
+    - ReachabilitySwift
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  BLMultiColorLoader: 9208e4541a88ec12e0da5af0e3619a805ab7ff6e
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+
+PODFILE CHECKSUM: ea2610f40bdfa1c4c917e464cd1e948b89e1be6f
+
+COCOAPODS: 1.5.2
