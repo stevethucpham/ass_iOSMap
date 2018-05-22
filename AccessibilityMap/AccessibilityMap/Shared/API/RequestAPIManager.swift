@@ -15,7 +15,24 @@ class RequestAPIManager {
     
     static let shared = RequestAPIManager()
     
-    
+    public func getBuildingInRange(lat: Double, long: Double, radius: Int, completionHandler: @escaping (_ result: Result<[Building]>) -> Void) {
+        request(type: .getBuildings(radius: radius, lat: lat, long: long)) { responseHandler in
+            switch responseHandler {
+            case .success(let data):
+                do {
+                    let buildings = try JSONDecoder().decode([Building].self, from: data!)
+                    completionHandler(.success(buildings))
+                } catch let error {
+                    debugPrint(error.localizedDescription)
+                    completionHandler(.failure(error))
+                }
+                break
+            case .failure(let error):
+                completionHandler(.failure(error))
+                break
+            }
+        }
+    }
     
     public func getBuildings(completionHandler: @escaping (_ result: Result<[Building]>) -> Void) {
         request(type: .getBuildingByName(name: "E", paging: PaginationRequest(limit: 10, offset: 0))) { responseHandler in
@@ -30,7 +47,7 @@ class RequestAPIManager {
                 }
                 break
             case .failure(let error):
-                debugPrint(error?.localizedDescription)
+                completionHandler(.failure(error))
                 break
             }
         }

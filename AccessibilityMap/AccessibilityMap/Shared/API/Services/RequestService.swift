@@ -35,21 +35,20 @@ extension RequestService: RequestType {
         }
     }
     var parameters: [String: Any]? {
+        let filterParam: [String: Any] = ["$select" : "block_id, accessibility_rating, accessibility_type, accessibility_type_description, building_name, location, street_address,suburb,x_coordinate,y_coordinate", "$group" : "block_id, accessibility_rating, accessibility_type, accessibility_type_description, building_name, location, street_address,suburb,x_coordinate,y_coordinate"]
         switch self {
         case .getBuilding:
-            return ["$where" : "building_name!='' AND accessibility_type!=''"]
+            return filterParam.dictByConcatinating(["$where" : "building_name!='' AND accessibility_type!=''"])
         case .getBuildings(let radius, let lat, let long):
             let radiusParam = "within_circle(location,\(lat),\(long),\(radius))"
-            return ["$where" : "building_name!='' AND accessibility_type!='' AND \(radiusParam)"]
+            return filterParam.dictByConcatinating(["$where" : "building_name!='' AND accessibility_type!='' AND \(radiusParam)"])
         case .getBuildingByName(let name, let paging):
             let searchNameParam = "starts_with(building_name,'\(name)')"
-            let searchParam: [String: Any] = ["$where" : "building_name!='' AND \(searchNameParam) AND accessibility_type!=''"] 
+            let searchParam: [String: Any] = filterParam.dictByConcatinating(["$where" : "building_name!='' AND \(searchNameParam) AND accessibility_type!=''"])
             guard let paging = paging else {
                 return searchParam
             }
             return searchParam.dictByConcatinating(paging.toDict())
-        default:
-            return nil
         }
     }
     var headers: [String: String]? {

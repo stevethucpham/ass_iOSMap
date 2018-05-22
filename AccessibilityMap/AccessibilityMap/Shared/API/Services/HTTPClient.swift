@@ -22,7 +22,7 @@ struct HTTPClient {
                 completionHandler(.success(handler.data))
                 break
             case .failure(let error):
-                completionHandler(.failure(handler.error))
+                completionHandler(.failure(error))
                 break
             }
         }
