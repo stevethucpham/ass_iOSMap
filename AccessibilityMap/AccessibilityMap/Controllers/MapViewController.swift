@@ -35,21 +35,17 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         setupMap()
         setupSearchBar()
-        // TODO: Request
-//        RequestAPIManager.shared.getBuildings { response in
-//            switch response {
-//            case .success(let buildings):
-//                print(buildings)
-//                break
-//            case .failure(let error):
-//                break
-//            }
-//        }
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .default
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        requestBuilding()
+
     }
 }
 
@@ -91,10 +87,11 @@ extension MapViewController {
     }
 
     private func setupSearchBar() {
-        searchBarView.searchText = "Test"
+//        searchBarView.searchText = "Test"
         searchBarView.searchButtonClicked = {
             let mainStoryboard = UIStoryboard(name: "Main" , bundle: nil)
             let searchLocationViewController = self.storyboard?.instantiateViewController(withIdentifier: "SearchNavigationViewController") as! UINavigationController
+            let searchVC = searchLocationViewController.viewControllers.first as! SearchLocationViewController
             self.present(searchLocationViewController, animated: true, completion: nil)
         }
         

@@ -21,10 +21,21 @@
 		6A8011AD20B46425001EA7EF /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8011AC20B46425001EA7EF /* FilterViewController.swift */; };
 		6A8011AF20B4643B001EA7EF /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8011AE20B4643B001EA7EF /* BookmarkViewController.swift */; };
 		6A8011B120B46446001EA7EF /* DetailLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8011B020B46446001EA7EF /* DetailLocationViewController.swift */; };
+		6A83125B20B6374F00DDEE3A /* SearchLocationDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A83125A20B6374F00DDEE3A /* SearchLocationDatasource.swift */; };
+		6A83125D20B640F300DDEE3A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A83125C20B640F300DDEE3A /* String.swift */; };
+		6A83125F20B669D900DDEE3A /* LoadMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A83125E20B669D900DDEE3A /* LoadMoreView.swift */; };
+		6A83126220B669F500DDEE3A /* LoadMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A83126120B669F500DDEE3A /* LoadMoreView.xib */; };
+		6A83126420B6767600DDEE3A /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A83126320B6767600DDEE3A /* Style.swift */; };
+		6A83126620B676D300DDEE3A /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A83126520B676D300DDEE3A /* UIColorExtension.swift */; };
+		6A83126A20B678CB00DDEE3A /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A83126920B678CB00DDEE3A /* RefreshControl.swift */; };
+		6A83127220B682E000DDEE3A /* ListPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A83127120B682E000DDEE3A /* ListPlaceHolder.swift */; };
+		6A8B604E20B6DB0700BF1AB5 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8B604D20B6DB0700BF1AB5 /* LocationService.swift */; };
+		6A8B605020B6DB4600BF1AB5 /* SpotLightManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8B604F20B6DB4500BF1AB5 /* SpotLightManager.swift */; };
 		6A92461020B3E79800761F50 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A92460F20B3E79800761F50 /* SearchBarView.swift */; };
 		6A92461220B3E7A400761F50 /* SearchBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A92461120B3E7A400761F50 /* SearchBarView.xib */; };
 		6AB1E29820B46C8E0089CAA8 /* AccessibilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E29620B46C8E0089CAA8 /* AccessibilityCell.swift */; };
 		6AB1E29920B46C8E0089CAA8 /* AccessibilityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AB1E29720B46C8E0089CAA8 /* AccessibilityCell.xib */; };
+		6AC3F72920B5C7DF0043745E /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3F72820B5C7DF0043745E /* CosmosDistrib.swift */; };
 		6ADB44E020B31F020015260E /* PaginationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADB44DF20B31F020015260E /* PaginationRequest.swift */; };
 		6ADB44E220B320D50015260E /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADB44E120B320D50015260E /* Dictionary.swift */; };
 		6AEE6B1F20B28AA000A72BF6 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEE6B1E20B28AA000A72BF6 /* LoadingIndicator.swift */; };
@@ -58,10 +69,21 @@
 		6A8011AC20B46425001EA7EF /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		6A8011AE20B4643B001EA7EF /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		6A8011B020B46446001EA7EF /* DetailLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationViewController.swift; sourceTree = "<group>"; };
+		6A83125A20B6374F00DDEE3A /* SearchLocationDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationDatasource.swift; sourceTree = "<group>"; };
+		6A83125C20B640F300DDEE3A /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		6A83125E20B669D900DDEE3A /* LoadMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreView.swift; sourceTree = "<group>"; };
+		6A83126120B669F500DDEE3A /* LoadMoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadMoreView.xib; sourceTree = "<group>"; };
+		6A83126320B6767600DDEE3A /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		6A83126520B676D300DDEE3A /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		6A83126920B678CB00DDEE3A /* RefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
+		6A83127120B682E000DDEE3A /* ListPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPlaceHolder.swift; sourceTree = "<group>"; };
+		6A8B604D20B6DB0700BF1AB5 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		6A8B604F20B6DB4500BF1AB5 /* SpotLightManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotLightManager.swift; sourceTree = "<group>"; };
 		6A92460F20B3E79800761F50 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		6A92461120B3E7A400761F50 /* SearchBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarView.xib; sourceTree = "<group>"; };
 		6AB1E29620B46C8E0089CAA8 /* AccessibilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityCell.swift; sourceTree = "<group>"; };
 		6AB1E29720B46C8E0089CAA8 /* AccessibilityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccessibilityCell.xib; sourceTree = "<group>"; };
+		6AC3F72820B5C7DF0043745E /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
 		6ADB44DF20B31F020015260E /* PaginationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationRequest.swift; sourceTree = "<group>"; };
 		6ADB44E120B320D50015260E /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		6AEE6B1E20B28AA000A72BF6 /* LoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
@@ -142,6 +164,8 @@
 		6A372EB320B285E000E62CCF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6A83126020B669DE00DDEE3A /* Load More */,
+				6AC3F72820B5C7DF0043745E /* CosmosDistrib.swift */,
 				6AB1E29520B46C600089CAA8 /* AccessibilityCell */,
 				6A8011A320B4107D001EA7EF /* Map Maker */,
 				6A92460C20B3E74500761F50 /* Search Bar */,
@@ -153,8 +177,8 @@
 		6A372EB420B285E500E62CCF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6A83125920B6373400DDEE3A /* Search Location */,
 				6AEE6B3020B2C6F400A72BF6 /* MapViewController.swift */,
-				6A8011AA20B4641B001EA7EF /* SearchLocationViewController.swift */,
 				6A8011AC20B46425001EA7EF /* FilterViewController.swift */,
 				6A8011AE20B4643B001EA7EF /* BookmarkViewController.swift */,
 				6A8011B020B46446001EA7EF /* DetailLocationViewController.swift */,
@@ -165,11 +189,13 @@
 		6A372EB520B285EB00E62CCF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				6A8B604C20B6DADF00BF1AB5 /* CoreDataManager */,
 				6AEE6B2620B2A20C00A72BF6 /* Constant.swift */,
 				6AEE6B1D20B28A6300A72BF6 /* Extensions */,
 				6AEE6B1C20B289ED00A72BF6 /* API */,
 				6AEE6B1B20B289E100A72BF6 /* Network Manager */,
 				6A372EB620B285F600E62CCF /* Image */,
+				6A83126320B6767600DDEE3A /* Style.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -190,6 +216,35 @@
 				6A8011A620B410E1001EA7EF /* AccessibilityMaker.swift */,
 			);
 			path = "Map Maker";
+			sourceTree = "<group>";
+		};
+		6A83125920B6373400DDEE3A /* Search Location */ = {
+			isa = PBXGroup;
+			children = (
+				6A8011AA20B4641B001EA7EF /* SearchLocationViewController.swift */,
+				6A83125A20B6374F00DDEE3A /* SearchLocationDatasource.swift */,
+			);
+			path = "Search Location";
+			sourceTree = "<group>";
+		};
+		6A83126020B669DE00DDEE3A /* Load More */ = {
+			isa = PBXGroup;
+			children = (
+				6A83125E20B669D900DDEE3A /* LoadMoreView.swift */,
+				6A83126120B669F500DDEE3A /* LoadMoreView.xib */,
+				6A83126920B678CB00DDEE3A /* RefreshControl.swift */,
+				6A83127120B682E000DDEE3A /* ListPlaceHolder.swift */,
+			);
+			path = "Load More";
+			sourceTree = "<group>";
+		};
+		6A8B604C20B6DADF00BF1AB5 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				6A8B604F20B6DB4500BF1AB5 /* SpotLightManager.swift */,
+				6A8B604D20B6DB0700BF1AB5 /* LocationService.swift */,
+			);
+			path = CoreDataManager;
 			sourceTree = "<group>";
 		};
 		6A92460B20B3E30300761F50 /* Services */ = {
@@ -251,6 +306,8 @@
 			children = (
 				6ADB44E120B320D50015260E /* Dictionary.swift */,
 				6A8011A120B40C4B001EA7EF /* ArrayExtension.swift */,
+				6A83125C20B640F300DDEE3A /* String.swift */,
+				6A83126520B676D300DDEE3A /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -326,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A92461220B3E7A400761F50 /* SearchBarView.xib in Resources */,
+				6A83126220B669F500DDEE3A /* LoadMoreView.xib in Resources */,
 				6A372EAB20B283FD00E62CCF /* LaunchScreen.storyboard in Resources */,
 				6A372EA820B283FD00E62CCF /* Assets.xcassets in Resources */,
 				6AB1E29920B46C8E0089CAA8 /* AccessibilityCell.xib in Resources */,
@@ -364,12 +422,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BLMultiColorLoader/BLMultiColorLoader.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BLMultiColorLoader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -383,30 +443,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A8B604E20B6DB0700BF1AB5 /* LocationService.swift in Sources */,
 				6A8011AF20B4643B001EA7EF /* BookmarkViewController.swift in Sources */,
+				6A8B605020B6DB4600BF1AB5 /* SpotLightManager.swift in Sources */,
 				6A8011AD20B46425001EA7EF /* FilterViewController.swift in Sources */,
 				6AEE6B2720B2A20C00A72BF6 /* Constant.swift in Sources */,
+				6A83125D20B640F300DDEE3A /* String.swift in Sources */,
+				6AC3F72920B5C7DF0043745E /* CosmosDistrib.swift in Sources */,
 				6AEE6B2B20B2A3AE00A72BF6 /* RequestAPIManager.swift in Sources */,
 				6AEE6B2120B28B3E00A72BF6 /* ReachabilityManager.swift in Sources */,
 				6ADB44E020B31F020015260E /* PaginationRequest.swift in Sources */,
 				6AEE6B2F20B2C03600A72BF6 /* Building.swift in Sources */,
 				6AEE6B2520B29F7600A72BF6 /* RequestService.swift in Sources */,
+				6A83125B20B6374F00DDEE3A /* SearchLocationDatasource.swift in Sources */,
 				6A8011A520B4108F001EA7EF /* AccessibilityView.swift in Sources */,
 				6A8011AB20B4641B001EA7EF /* SearchLocationViewController.swift in Sources */,
 				6AB1E29820B46C8E0089CAA8 /* AccessibilityCell.swift in Sources */,
 				6A8011B120B46446001EA7EF /* DetailLocationViewController.swift in Sources */,
+				6A83127220B682E000DDEE3A /* ListPlaceHolder.swift in Sources */,
+				6A83126A20B678CB00DDEE3A /* RefreshControl.swift in Sources */,
 				6AEE6B2320B28B9100A72BF6 /* Result.swift in Sources */,
 				6AEE6B2920B2A2FB00A72BF6 /* RequestType.swift in Sources */,
+				6A83126620B676D300DDEE3A /* UIColorExtension.swift in Sources */,
 				6AEE6B3120B2C6F400A72BF6 /* MapViewController.swift in Sources */,
 				6AEE6B2D20B2AD3200A72BF6 /* HTTPClient.swift in Sources */,
 				6A92461020B3E79800761F50 /* SearchBarView.swift in Sources */,
 				6A8011A720B410E1001EA7EF /* AccessibilityMaker.swift in Sources */,
 				6A8011A220B40C4B001EA7EF /* ArrayExtension.swift in Sources */,
+				6A83126420B6767600DDEE3A /* Style.swift in Sources */,
 				6AEE6B1F20B28AA000A72BF6 /* LoadingIndicator.swift in Sources */,
 				6A8011A920B414B8001EA7EF /* ClusterView.swift in Sources */,
 				6ADB44E220B320D50015260E /* Dictionary.swift in Sources */,
 				6A372E9E20B283FD00E62CCF /* AppDelegate.swift in Sources */,
 				6A372EA620B283FD00E62CCF /* AccessibilityMap.xcdatamodeld in Sources */,
+				6A83125F20B669D900DDEE3A /* LoadMoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,12 +615,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XC6P3RXJV8;
 				INFOPLIST_FILE = AccessibilityMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Swinburne.AccessibilityMap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swinburne.accessibilitymap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "67a2a8c7-0749-444d-b5be-839d068ccff6";
+				PROVISIONING_PROFILE_SPECIFIER = "App Development";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -565,7 +636,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AccessibilityMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Swinburne.AccessibilityMap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swinburne.accessibilitymap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

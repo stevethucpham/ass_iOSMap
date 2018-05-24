@@ -21,7 +21,7 @@ struct Building: Decodable {
     
     enum BuildingKeys: String, CodingKey {
         case address = "street_address"
-        case name = "building_name"
+        case name = "lower_building_name"
 //        case constructionYear = "construction_year"
         case blockId = "block_id"
         case longitude = "x_coordinate"

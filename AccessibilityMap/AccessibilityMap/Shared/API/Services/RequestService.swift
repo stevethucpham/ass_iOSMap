@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 enum RequestService {
-    case getBuilding
+    case getBuilding(paging: PaginationRequest?)
     case getBuildings(radius: Int, lat: Double, long: Double)
     case getBuildingByName(name: String, paging: PaginationRequest?)
 }
@@ -35,10 +35,14 @@ extension RequestService: RequestType {
         }
     }
     var parameters: [String: Any]? {
-        let filterParam: [String: Any] = ["$select" : "block_id, accessibility_rating, accessibility_type, accessibility_type_description, building_name, location, street_address,suburb,x_coordinate,y_coordinate", "$group" : "block_id, accessibility_rating, accessibility_type, accessibility_type_description, building_name, location, street_address,suburb,x_coordinate,y_coordinate"]
+        let filterParam: [String: Any] = ["$select" : "block_id, accessibility_rating, accessibility_type, accessibility_type_description, lower(building_name), location, street_address,suburb,x_coordinate,y_coordinate", "$group" : "block_id, accessibility_rating, accessibility_type, accessibility_type_description, lower(building_name), location, street_address,suburb,x_coordinate,y_coordinate"]
         switch self {
-        case .getBuilding:
-            return filterParam.dictByConcatinating(["$where" : "building_name!='' AND accessibility_type!=''"])
+        case .getBuilding(let paging):
+            let searchParam: [String: Any] = filterParam.dictByConcatinating(["$where" : "building_name!='' AND accessibility_type!=''"])
+            guard let paging = paging else {
+                return searchParam
+            }
+            return searchParam.dictByConcatinating(paging.toDict())
         case .getBuildings(let radius, let lat, let long):
             let radiusParam = "within_circle(location,\(lat),\(long),\(radius))"
             return filterParam.dictByConcatinating(["$where" : "building_name!='' AND accessibility_type!='' AND \(radiusParam)"])
