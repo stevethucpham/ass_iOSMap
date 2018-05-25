@@ -25,6 +25,7 @@ class AccessibilityCell: UITableViewCell {
             self.accessibilityRating.rating = Double(building.rating)
             self.accessTypeLabel.text = building.type
             self.buildingAddressLabel.text = building.address
+            self.locationImage.image = #imageLiteral(resourceName: "sample_image")
         }
     }
     

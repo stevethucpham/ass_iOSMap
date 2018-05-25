@@ -82,6 +82,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VFy-h3-LbE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="F0m-vV-Llw" id="Z0K-Rh-92V"/>
                                     <outlet property="delegate" destination="F0m-vV-Llw" id="hja-OG-Psf"/>
@@ -107,9 +110,6 @@
                                                 <state key="normal" title="Retry">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="common_bt_retry"/>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="retryButtonClicked:" destination="F0m-vV-Llw" eventType="touchUpInside" id="iQ0-wG-LGp"/>
                                                 </connections>
@@ -183,19 +183,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MQg-Wf-hrR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="MQg-Wf-hrR">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Ktq-rR-KaA">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ktq-rR-KaA" id="gcy-EE-I2c">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="36T-Oe-stE" id="Mkm-mf-l2n"/>
+                                    <outlet property="delegate" destination="36T-Oe-stE" id="7sU-DU-fSG"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -207,7 +201,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9eH-fQ-ZRK"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Filter" id="Con-Bz-oiQ"/>
+                    <navigationItem key="navigationItem" title="Filter" id="Con-Bz-oiQ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OTl-08-5mk">
+                            <connections>
+                                <action selector="cancelButtonClicked:" destination="36T-Oe-stE" id="9KB-TU-L9S"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="ghl-JQ-uft">
+                            <connections>
+                                <action selector="searchButtonClicked:" destination="36T-Oe-stE" id="Pma-eZ-Qs2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="MQg-Wf-hrR" id="K1b-Ew-qJT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RMD-00-9wy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -258,11 +266,12 @@
         <!--Navigation Controller-->
         <scene sceneID="4Sp-Zb-rlF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eMf-Mx-oWc" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FilterNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="eMf-Mx-oWc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Kx5-hX-QOD">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="1" green="0.33674675199491244" blue="0.26997663509208536" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

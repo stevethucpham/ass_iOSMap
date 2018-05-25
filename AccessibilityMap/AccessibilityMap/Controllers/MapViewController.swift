@@ -97,7 +97,7 @@ extension MapViewController {
         
         searchBarView.filterButtonClicked = {
             let mainStoryboard = UIStoryboard(name: "Main" , bundle: nil)
-            let filterViewController = mainStoryboard.instantiateViewController(withIdentifier: "FilterViewController") as! FilterViewController
+            let filterViewController = mainStoryboard.instantiateViewController(withIdentifier: "FilterNavigationViewController") as! UINavigationController
             self.present(filterViewController, animated: true, completion: nil)
         }
     }

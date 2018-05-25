@@ -11,8 +11,7 @@ import Alamofire
 
 struct HTTPClient {
     
-    
-    
+
     internal typealias RequestableCompletion = (HTTPURLResponse?, Data?, Error?) -> Void
     
     func request(type: RequestType, completionHandler: @escaping (Result<Data>) -> Void) {

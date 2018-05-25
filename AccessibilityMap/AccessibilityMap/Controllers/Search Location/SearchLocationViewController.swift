@@ -29,6 +29,7 @@ class SearchLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchTableView.isSkeletonable = true
         setupTableView()
         currentDatasource = searchDatasource
         loadFirstPage()
@@ -76,6 +77,7 @@ extension SearchLocationViewController {
         searchTableView.register(UINib(nibName: "AccessibilityCell", bundle: nil), forCellReuseIdentifier: "accessibilityCell")
         searchTableView.addSubview(refreshControl)
         searchTableView.sendSubview(toBack: refreshControl)
+        
     }
     
     func onRefresh() {
@@ -101,9 +103,10 @@ extension SearchLocationViewController {
     }
     
     func loadMore() {
-        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         currentDatasource.loadMore { [unowned self] (result) in
             DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch result {
                 case .success(nil):
                     self.searchTableView.reloadData()
@@ -124,9 +127,11 @@ extension SearchLocationViewController {
         setMessageViewHidden(true)
         searchBar.text = ""
         LoadingIndicator.shared.show()
+//        self.searchTableView.showAnimatedGradientSkeleton()
         currentDatasource.loadFirstPage {  [unowned self] (result) in
             DispatchQueue.main.async {
                 LoadingIndicator.shared.hide()
+//                self.view.hideSkeleton()
                 switch result {
                 case .success(nil):
                     self.searchTableView.reloadData()
@@ -198,8 +203,10 @@ extension SearchLocationViewController: UISearchBarDelegate {
     
     @objc func search() {
         setMessageViewHidden(true)
+        view.showAnimatedGradientSkeleton()
         currentDatasource.loadFirstPage(searchQuery!) { [unowned self] (result) in
            self.refreshControl.endRefreshing()
+            self.view.hideSkeleton()
             switch result {
             case .success(nil):
                  DispatchQueue.main.async {

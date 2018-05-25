@@ -17,6 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let radius = UserDefaults.standard.double(forKey: "radius")
+        if radius == 0 {
+            UserDefaults.standard.set(1.0, forKey: "radius")
+        }
+        let ratingFilter = UserDefaults.standard.string(forKey: "ratingFilter")
+        if ratingFilter == "" || ratingFilter == nil {
+            UserDefaults.standard.set("all", forKey: "radius")
+        }
         return true
     }
 
