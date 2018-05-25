@@ -103,10 +103,10 @@ extension SearchLocationViewController {
     }
     
     func loadMore() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         currentDatasource.loadMore { [unowned self] (result) in
             DispatchQueue.main.async {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch result {
                 case .success(nil):
                     self.searchTableView.reloadData()
@@ -127,11 +127,9 @@ extension SearchLocationViewController {
         setMessageViewHidden(true)
         searchBar.text = ""
         LoadingIndicator.shared.show()
-//        self.searchTableView.showAnimatedGradientSkeleton()
         currentDatasource.loadFirstPage {  [unowned self] (result) in
             DispatchQueue.main.async {
                 LoadingIndicator.shared.hide()
-//                self.view.hideSkeleton()
                 switch result {
                 case .success(nil):
                     self.searchTableView.reloadData()
@@ -142,7 +140,10 @@ extension SearchLocationViewController {
                     break
                 case .failure(let error):
                     print(error?.localizedDescription ?? "No error")
-                    self.setMessageViewHidden(false, message: error?.localizedDescription, isButtonHidden: false)
+                    if (error?.localizedDescription != "cancelled") {
+                        self.setMessageViewHidden(false, message: error?.localizedDescription, isButtonHidden: false)
+                    }
+                    
                     break
                 default:
                     break
@@ -205,23 +206,26 @@ extension SearchLocationViewController: UISearchBarDelegate {
         setMessageViewHidden(true)
         view.showAnimatedGradientSkeleton()
         currentDatasource.loadFirstPage(searchQuery!) { [unowned self] (result) in
-           self.refreshControl.endRefreshing()
-            self.view.hideSkeleton()
-            switch result {
-            case .success(nil):
-                 DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+                self.view.hideSkeleton()
+//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                switch result {
+                case .success(nil):
                     if self.currentDatasource.buildings.count == 0 {
                         self.setMessageViewHidden(false, message: "There is no location", isButtonHidden: true)
                     }
                     self.reloadData(scrollToTop: true, invalidateLayout: true)
-                 }
-                break
-            case .failure(let error):
-                print(error?.localizedDescription ?? "empty")
-                self.setMessageViewHidden(false, message: error?.localizedDescription, isButtonHidden: false)
-                break
-            default:
-                break
+                    break
+                case .failure(let error):
+                    print(error?.localizedDescription ?? "empty")
+                    if (error?.localizedDescription != "cancelled") {
+                        self.setMessageViewHidden(false, message: error?.localizedDescription, isButtonHidden: false)
+                    }
+                    break
+                default:
+                    break
+                }
             }
         }
     }

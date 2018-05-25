@@ -9,9 +9,9 @@ import UIKit
 import Alamofire
 
 enum RequestService {
-    case getBuilding(paging: PaginationRequest?)
-    case getBuildings(radius: Int, lat: Double, long: Double)
-    case getBuildingByName(name: String, paging: PaginationRequest?)
+    case getBuilding(paging: PaginationRequest?, filterData: String?)
+    case getBuildings(radius: Int, lat: Double, long: Double, filterData: String?)
+    case getBuildingByName(name: String, paging: PaginationRequest?, filterData: String?)
 }
 
 
@@ -37,20 +37,29 @@ extension RequestService: RequestType {
     var parameters: [String: Any]? {
         let filterParam: [String: Any] = ["$select" : "block_id, accessibility_rating, accessibility_type, accessibility_type_description, lower(building_name), location, street_address,suburb,x_coordinate,y_coordinate", "$group" : "block_id, accessibility_rating, accessibility_type, accessibility_type_description, lower(building_name), location, street_address,suburb,x_coordinate,y_coordinate"]
         switch self {
-        case .getBuilding(let paging):
-            let searchParam: [String: Any] = filterParam.dictByConcatinating(["$where" : "building_name!='' AND accessibility_type!=''"])
+        case .getBuilding(let paging, let filterData):
+            var searchParam: [String: Any] = filterParam.dictByConcatinating(["$where" : "building_name!='' AND accessibility_type!='' AND census_year=2016"])
             guard let paging = paging else {
                 return searchParam
             }
+            if let filterData = filterData {
+                searchParam = filterParam.dictByConcatinating(["$where" : "building_name!='' AND accessibility_type!='' AND census_year = 2016 AND \(filterData)"])
+            }
             return searchParam.dictByConcatinating(paging.toDict())
-        case .getBuildings(let radius, let lat, let long):
+        case .getBuildings(let radius, let lat, let long, let filterData):
             let radiusParam = "within_circle(location,\(lat),\(long),\(radius))"
-            return filterParam.dictByConcatinating(["$where" : "building_name!='' AND accessibility_type!='' AND \(radiusParam)"])
-        case .getBuildingByName(let name, let paging):
+            if let filterData = filterData {
+                return filterParam.dictByConcatinating(["$where" : "building_name!='' AND accessibility_type!='' AND census_year = 2016 AND \(radiusParam) AND \(filterData)"])
+            }
+            return filterParam.dictByConcatinating(["$where" : "building_name!='' AND accessibility_type!='' AND census_year = 2016 AND \(radiusParam)"])
+        case .getBuildingByName(let name, let paging, let filterData):
             let searchNameParam = "starts_with(building_name,'\(name)')"
-            let searchParam: [String: Any] = filterParam.dictByConcatinating(["$where" : "building_name!='' AND \(searchNameParam) AND accessibility_type!=''"])
+            var searchParam: [String: Any] = filterParam.dictByConcatinating(["$where" : "building_name!='' AND \(searchNameParam) AND accessibility_type!='' AND census_year = 2016"])
             guard let paging = paging else {
                 return searchParam
+            }
+            if let filterData = filterData {
+                searchParam = filterParam.dictByConcatinating(["$where" : "building_name!='' AND \(searchNameParam) AND accessibility_type!='' AND census_year = 2016 OAND \(filterData)"])
             }
             return searchParam.dictByConcatinating(paging.toDict())
         }

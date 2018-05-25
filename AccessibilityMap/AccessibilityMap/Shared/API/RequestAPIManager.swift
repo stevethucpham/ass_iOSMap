@@ -15,8 +15,8 @@ class RequestAPIManager {
     
     static let shared = RequestAPIManager()
     
-    public func getBuildingInRange(lat: Double, long: Double, radius: Int, completionHandler: @escaping (_ result: Result<[Building]>) -> Void) {
-        request(type: .getBuildings(radius: radius, lat: lat, long: long)) { responseHandler in
+    public func getBuildingInRange(lat: Double, long: Double, radius: Int, filterData: String? = nil ,  completionHandler: @escaping (_ result: Result<[Building]>) -> Void) {
+        request(type: .getBuildings(radius: radius, lat: lat, long: long, filterData: filterData)) { responseHandler in
             switch responseHandler {
             case .success(let data):
                 do {
@@ -34,12 +34,12 @@ class RequestAPIManager {
         }
     }
     
-    public func getBuildings(buildingName: String, paging: PaginationRequest , completionHandler: @escaping (_ result: Result<[Building]>) -> Void) -> DataRequest {
+    public func getBuildings(buildingName: String, paging: PaginationRequest, filterData: String? = nil , completionHandler: @escaping (_ result: Result<[Building]>) -> Void) -> DataRequest {
         let dataRequest: DataRequest
         if (buildingName == "") {
-            dataRequest = getBuildings(paging: paging, completionHandler: completionHandler)
+            dataRequest = getBuildings(paging: paging, filterData: filterData ,completionHandler: completionHandler)
         } else {
-            dataRequest = request(type: .getBuildingByName(name: buildingName, paging: paging)) { responseHandler in
+            dataRequest = request(type: .getBuildingByName(name: buildingName, paging: paging, filterData: filterData)) { responseHandler in
                 switch responseHandler {
                 case .success(let data):
                     do {
@@ -59,8 +59,8 @@ class RequestAPIManager {
         return dataRequest
     }
     
-    public func getBuildings(paging: PaginationRequest, completionHandler: @escaping (_ result: Result<[Building]>) -> Void) -> DataRequest {
-        let dataRequest = request(type: .getBuilding(paging: paging)) { responseHandler in
+    public func getBuildings(paging: PaginationRequest, filterData: String? = nil, completionHandler: @escaping (_ result: Result<[Building]>) -> Void) -> DataRequest {
+        let dataRequest = request(type: .getBuilding(paging: paging, filterData: filterData)) { responseHandler in
             switch responseHandler {
             case .success(let data):
                 do {
@@ -80,7 +80,7 @@ class RequestAPIManager {
     }
     
     
-    func request(type: RequestService, completionHandler: @escaping (_ result: Result<Data>) -> Void) -> DataRequest {
+    @discardableResult func request(type: RequestService, completionHandler: @escaping (_ result: Result<Data>) -> Void) -> DataRequest {
         let request = Alamofire.request("\(type.baseURL)\(type.path)", method: type.method, parameters: type.parameters, headers: type.headers).validate().responseData { handler in
 //            debugPrint("All Response Info: \(handler)")
             switch handler.result {

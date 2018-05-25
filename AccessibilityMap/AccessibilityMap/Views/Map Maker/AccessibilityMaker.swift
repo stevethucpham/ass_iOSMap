@@ -10,10 +10,20 @@ import Foundation
 import MapKit
 
 class AccessibilityMaker: MKPointAnnotation {
-    class func accessibilityMaker(fromLocation building: Building)-> AccessibilityMaker {
-        let accessibilityMaker = AccessibilityMaker()
-        accessibilityMaker.coordinate = CLLocationCoordinate2DMake(building.latitude, building.longitude)
-        accessibilityMaker.title = building.name
-        return accessibilityMaker
+//    class func accessibilityMaker(fromLocation building: Building)-> AccessibilityMaker {
+//        let accessibilityMaker = AccessibilityMaker()
+//        accessibilityMaker.coordinate = CLLocationCoordinate2DMake(building.latitude, building.longitude)
+//        accessibilityMaker.title = building.name.capitalized
+//        return accessibilityMaker
+//    }
+    
+    var building: Building!
+    
+    
+    init(building: Building) {
+        super.init()
+        self.building = building
+        self.coordinate = CLLocationCoordinate2DMake(building.latitude, building.longitude)
+        self.title = building.name.capitalized
     }
 }

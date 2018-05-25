@@ -13,6 +13,7 @@ class SearchLocationDatasource {
     private(set) var buildings = [Building]()
     private(set) var paginationRequest: PaginationRequest = PaginationRequest(limit: 10, offset:0)
     private(set) var isLoading: Bool = false
+    private(set) var isEnded: Bool = false
     private var currentQuery: String? = nil
     private(set) var currentRequest: DataRequest? = nil
     
@@ -23,20 +24,29 @@ class SearchLocationDatasource {
         loadCurrentPage(completion: completion)
     }
     
-    func loadCurrentPage(completion: @escaping (Result<Void>) -> Void) {
-//        currentRequest?.cancel()
-        
+    func loadCurrentPage(loadMore: Bool? = false, completion: @escaping (Result<Void>) -> Void) {
+        if let currentRequest = currentRequest {
+            currentRequest.cancel()
+        }
         isLoading = true
         var query = ""
         if currentQuery != nil {
             query = currentQuery!
         }
-        currentRequest = RequestAPIManager.shared.getBuildings(buildingName: query, paging: paginationRequest) { (result) in
+        var filterData = UserDefaults.standard.string(forKey: "ratingFilter")
+        if filterData == "all" {
+            filterData = nil
+        }
+        currentRequest = RequestAPIManager.shared.getBuildings(buildingName: query, paging: paginationRequest, filterData: filterData) { (result) in
             self.isLoading = false
             switch result {  
             case .success(let list):
                 if let list = list {
                     let buildingList = self.filterDuplicateData(accessibilityList: list)
+//                    if list.count < self.paginationRequest.limit! {
+//                        isEnded = true
+//                    }
+                    self.isEnded = list.count < self.paginationRequest.limit!
                     self.buildings.append(contentsOf: buildingList)
                     completion(.success(nil))
                 }
@@ -59,7 +69,7 @@ class SearchLocationDatasource {
     }
     
     func loadMore(completion: @escaping (Result<Void>) -> Void) {
-        if  !isLoading {
+        if  !isLoading && !isEnded {
             paginationRequest = paginationRequest.nextPageRequest()
             loadCurrentPage(completion: completion)
         }

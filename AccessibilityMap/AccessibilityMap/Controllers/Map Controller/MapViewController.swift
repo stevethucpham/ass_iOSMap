@@ -19,7 +19,13 @@ class MapViewController: UIViewController {
         didSet {
             if (currentLocation.coordinate.latitude != lastLocation.coordinate.latitude && currentLocation.coordinate.longitude != lastLocation.coordinate.longitude) {
                 lastLocation = currentLocation
-                requestBuilding()
+                let radius = UserDefaults.standard.integer(forKey: "radius")
+                let filterData = UserDefaults.standard.string(forKey: "ratingFilter") ?? ""
+                if filterData == "all" {
+                    requestBuilding(radius: radius)
+                } else {
+                    requestBuilding(radius: radius, filterData: filterData)
+                }
             }
         }
     }
@@ -35,37 +41,51 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         setupMap()
         setupSearchBar()
-
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailViewController = segue.destination as? DetailLocationViewController {
+            let barButtonItem = UIBarButtonItem()
+            barButtonItem.title = ""
+            navigationItem.backBarButtonItem = barButtonItem
+            detailViewController.building = sender as! Building
+        }
     }
 }
 
 // MARK: Setup view function
 extension MapViewController {
-    private func requestBuilding() {
-        RequestAPIManager.shared.getBuildingInRange(lat: currentLocation.coordinate.latitude, long: currentLocation.coordinate.longitude, radius: 1000) { (response) in
+    
+    private func removeMarkers() {
+        mapView.removeAnnotations(mapView.annotations)
+    }
+    
+    private func requestBuilding(radius: Int, filterData: String? = nil) {
+        LoadingIndicator.shared.show()
+        RequestAPIManager.shared.getBuildingInRange(lat: currentLocation.coordinate.latitude, long: currentLocation.coordinate.longitude, radius: radius, filterData: filterData) { [unowned self] (response) in
+            LoadingIndicator.shared.hide()
             switch response {
                 case .success(let buildings):
                     if let buildings = buildings {
+                        self.removeMarkers()
                         var buildingList = Array(buildings)
                         buildingList = buildingList.filterDuplicates { $0.name.lowercased() == $1.name.lowercased() || $0.latitude == $1.latitude}
-                        print(buildingList.count)
+                        debugPrint(buildingList.count)
                         for building in buildingList {
-                             let annotation =  AccessibilityMaker.accessibilityMaker(fromLocation: building)
+                            let annotation = AccessibilityMaker(building: building)
                             self.mapView.addAnnotation(annotation)
                         }
                     }
                     break
                 case .failure(let error):
+                    print(error?.localizedDescription ?? "")
                     break
             }
         }
@@ -89,16 +109,18 @@ extension MapViewController {
     private func setupSearchBar() {
 //        searchBarView.searchText = "Test"
         searchBarView.searchButtonClicked = {
-            let mainStoryboard = UIStoryboard(name: "Main" , bundle: nil)
+//            let mainStoryboard = UIStoryboard(name: "Main" , bundle: nil)
             let searchLocationViewController = self.storyboard?.instantiateViewController(withIdentifier: "SearchNavigationViewController") as! UINavigationController
-            let searchVC = searchLocationViewController.viewControllers.first as! SearchLocationViewController
+//            let searchVC = searchLocationViewController.viewControllers.first as! SearchLocationViewController
             self.present(searchLocationViewController, animated: true, completion: nil)
         }
         
         searchBarView.filterButtonClicked = {
             let mainStoryboard = UIStoryboard(name: "Main" , bundle: nil)
-            let filterViewController = mainStoryboard.instantiateViewController(withIdentifier: "FilterNavigationViewController") as! UINavigationController
-            self.present(filterViewController, animated: true, completion: nil)
+            let filterNavViewController = mainStoryboard.instantiateViewController(withIdentifier: "FilterNavigationViewController") as! UINavigationController
+            let filterVC = filterNavViewController.viewControllers.first as! FilterViewController
+            filterVC.delegate = self
+            self.present(filterNavViewController, animated: true, completion: nil)
         }
     }
     
@@ -145,6 +167,44 @@ extension MapViewController: MKMapViewDelegate {
         else{
             return nil
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let marker = view.annotation as? AccessibilityMaker {
+//            print(marker.building.name)
+            mapView.setCenter(marker.coordinate, animated: true)
+            let infoWindowController = DetailInfoWindowController(nibName: "DetailInfoWindowController", bundle: nil)
+            infoWindowController.building = marker.building
+            infoWindowController.currentMarker = marker
+            infoWindowController.modalPresentationStyle = .overCurrentContext
+            infoWindowController.delegate = self
+            let markerLocation = CLLocation(latitude: marker.building.latitude, longitude: marker.building.longitude)
+            let distanceInMeters = currentLocation.distance(from: markerLocation)
+            infoWindowController.distance = distanceInMeters
+            self.present(infoWindowController, animated: true, completion: nil)
+        }
+    }
+}
+
+extension MapViewController: DetailInfoWindowDelegate {
+    
+    func dimissViewController(annotation: MKAnnotation) {
+        self.mapView.deselectAnnotation(annotation, animated: true)
+    }
+    
+    func selectDetailInfoWindow(building: Building) {
+        performSegue(withIdentifier: "showDetailViewController", sender: building)
+    }
+}
+
+extension MapViewController: FilterDelgate {
+    func displayMap(radius: Int, filterData: String) {
+        if filterData == "all" {
+            requestBuilding(radius: radius)
+        } else {
+            requestBuilding(radius: radius, filterData: filterData)
+        }
+        mapView.setCenter(currentLocation.coordinate, animated: true)
     }
 }
 

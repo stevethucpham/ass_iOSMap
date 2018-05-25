@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailInfoWindowController" customModule="AccessibilityMap" customModuleProvider="target">
+            <connections>
+                <outlet property="infoWindowView" destination="CrZ-Vd-97E" id="G0J-s5-pbK"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="UIControl">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrZ-Vd-97E" customClass="DetailInfoWindow" customModule="AccessibilityMap" customModuleProvider="target">
+                    <rect key="frame" x="15" y="480.5" width="345" height="166.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jc-qG-dMP">
+                    <rect key="frame" x="15" y="480" width="345" height="166.5"/>
+                    <connections>
+                        <action selector="selectInfoWindow:" destination="-1" eventType="touchUpInside" id="oSi-iL-H5y"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="3jc-qG-dMP" firstAttribute="top" secondItem="CrZ-Vd-97E" secondAttribute="top" id="2p5-qk-uHr"/>
+                <constraint firstItem="3jc-qG-dMP" firstAttribute="trailing" secondItem="CrZ-Vd-97E" secondAttribute="trailing" id="9qt-Ta-26G"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CrZ-Vd-97E" secondAttribute="trailing" constant="15" id="Cr8-dx-eD8"/>
+                <constraint firstItem="CrZ-Vd-97E" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1/4" id="IIS-eY-4ZX"/>
+                <constraint firstItem="CrZ-Vd-97E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="UHh-H4-7O7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CrZ-Vd-97E" secondAttribute="bottom" constant="20" id="V7j-B9-BmO"/>
+                <constraint firstItem="3jc-qG-dMP" firstAttribute="bottom" secondItem="CrZ-Vd-97E" secondAttribute="bottom" id="cTI-qg-eBa"/>
+                <constraint firstItem="3jc-qG-dMP" firstAttribute="leading" secondItem="CrZ-Vd-97E" secondAttribute="leading" id="nnQ-1Z-jqJ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <connections>
+                <action selector="selectOutSide:" destination="-1" eventType="touchUpInside" id="mDy-CK-R4W"/>
+            </connections>
+        </view>
+    </objects>
+</document>

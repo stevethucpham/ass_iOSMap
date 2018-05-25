@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		08198D13C899C1A498BC2212 /* Pods_AccessibilityMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0EC2DB484282E210B92D70 /* Pods_AccessibilityMap.framework */; };
+		6A14F6CE20B7FD35007738A3 /* DetailInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A14F6CD20B7FD35007738A3 /* DetailInfoWindow.swift */; };
+		6A14F6D020B7FD6D007738A3 /* DetailInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A14F6CF20B7FD6D007738A3 /* DetailInfoWindow.xib */; };
+		6A14F6D320B80757007738A3 /* DetailInfoWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A14F6D120B80757007738A3 /* DetailInfoWindowController.swift */; };
+		6A14F6D420B80757007738A3 /* DetailInfoWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A14F6D220B80757007738A3 /* DetailInfoWindowController.xib */; };
 		6A372E9E20B283FD00E62CCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A372E9D20B283FD00E62CCF /* AppDelegate.swift */; };
 		6A372EA320B283FD00E62CCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A372EA120B283FD00E62CCF /* Main.storyboard */; };
 		6A372EA620B283FD00E62CCF /* AccessibilityMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A372EA420B283FD00E62CCF /* AccessibilityMap.xcdatamodeld */; };
@@ -15,8 +19,6 @@
 		6A372EAB20B283FD00E62CCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A372EA920B283FD00E62CCF /* LaunchScreen.storyboard */; };
 		6A3D8A9620B7A76A004BCC88 /* FilterRadiusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D8A9420B7A76A004BCC88 /* FilterRadiusCell.swift */; };
 		6A3D8A9720B7A76A004BCC88 /* FilterRadiusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A3D8A9520B7A76A004BCC88 /* FilterRadiusCell.xib */; };
-		6A3D8A9A20B7A784004BCC88 /* FilterOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D8A9820B7A784004BCC88 /* FilterOrderCell.swift */; };
-		6A3D8A9B20B7A784004BCC88 /* FilterOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A3D8A9920B7A784004BCC88 /* FilterOrderCell.xib */; };
 		6A3D8A9D20B7D4AE004BCC88 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D8A9C20B7D4AE004BCC88 /* CacheManager.swift */; };
 		6A8011A220B40C4B001EA7EF /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8011A120B40C4B001EA7EF /* ArrayExtension.swift */; };
 		6A8011A520B4108F001EA7EF /* AccessibilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8011A420B4108F001EA7EF /* AccessibilityView.swift */; };
@@ -58,6 +60,10 @@
 		1E207A2588277238A4AF2F12 /* Pods-AccessibilityMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessibilityMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AccessibilityMap/Pods-AccessibilityMap.debug.xcconfig"; sourceTree = "<group>"; };
 		4AF8B6D241E6B90EF21523D1 /* Pods-AccessibilityMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessibilityMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccessibilityMap/Pods-AccessibilityMap.release.xcconfig"; sourceTree = "<group>"; };
 		4F0EC2DB484282E210B92D70 /* Pods_AccessibilityMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccessibilityMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A14F6CD20B7FD35007738A3 /* DetailInfoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoWindow.swift; sourceTree = "<group>"; };
+		6A14F6CF20B7FD6D007738A3 /* DetailInfoWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailInfoWindow.xib; sourceTree = "<group>"; };
+		6A14F6D120B80757007738A3 /* DetailInfoWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoWindowController.swift; sourceTree = "<group>"; };
+		6A14F6D220B80757007738A3 /* DetailInfoWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailInfoWindowController.xib; sourceTree = "<group>"; };
 		6A372E9A20B283FD00E62CCF /* AccessibilityMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessibilityMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A372E9D20B283FD00E62CCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A372EA220B283FD00E62CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,8 +73,6 @@
 		6A372EAC20B283FD00E62CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A3D8A9420B7A76A004BCC88 /* FilterRadiusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRadiusCell.swift; sourceTree = "<group>"; };
 		6A3D8A9520B7A76A004BCC88 /* FilterRadiusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterRadiusCell.xib; sourceTree = "<group>"; };
-		6A3D8A9820B7A784004BCC88 /* FilterOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOrderCell.swift; sourceTree = "<group>"; };
-		6A3D8A9920B7A784004BCC88 /* FilterOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterOrderCell.xib; sourceTree = "<group>"; };
 		6A3D8A9C20B7D4AE004BCC88 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		6A8011A120B40C4B001EA7EF /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		6A8011A420B4108F001EA7EF /* AccessibilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityView.swift; sourceTree = "<group>"; };
@@ -126,6 +130,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6A14F6CC20B7FD06007738A3 /* Info Window */ = {
+			isa = PBXGroup;
+			children = (
+				6A14F6CD20B7FD35007738A3 /* DetailInfoWindow.swift */,
+				6A14F6CF20B7FD6D007738A3 /* DetailInfoWindow.xib */,
+			);
+			path = "Info Window";
+			sourceTree = "<group>";
+		};
+		6A14F6D520B80864007738A3 /* Map Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6AEE6B3020B2C6F400A72BF6 /* MapViewController.swift */,
+				6A14F6D120B80757007738A3 /* DetailInfoWindowController.swift */,
+				6A14F6D220B80757007738A3 /* DetailInfoWindowController.xib */,
+			);
+			path = "Map Controller";
+			sourceTree = "<group>";
+		};
 		6A372E9120B283FD00E62CCF = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +195,7 @@
 		6A372EB320B285E000E62CCF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6A14F6CC20B7FD06007738A3 /* Info Window */,
 				6A8B605820B7074700BF1AB5 /* Filter Cell */,
 				6A8B605720B7073600BF1AB5 /* Rating Star */,
 				6A83126020B669DE00DDEE3A /* Load More */,
@@ -187,10 +211,10 @@
 			isa = PBXGroup;
 			children = (
 				6A83125920B6373400DDEE3A /* Search Location */,
-				6AEE6B3020B2C6F400A72BF6 /* MapViewController.swift */,
 				6A8011AC20B46425001EA7EF /* FilterViewController.swift */,
 				6A8011AE20B4643B001EA7EF /* BookmarkViewController.swift */,
 				6A8011B020B46446001EA7EF /* DetailLocationViewController.swift */,
+				6A14F6D520B80864007738A3 /* Map Controller */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -269,8 +293,6 @@
 			children = (
 				6A3D8A9420B7A76A004BCC88 /* FilterRadiusCell.swift */,
 				6A3D8A9520B7A76A004BCC88 /* FilterRadiusCell.xib */,
-				6A3D8A9820B7A784004BCC88 /* FilterOrderCell.swift */,
-				6A3D8A9920B7A784004BCC88 /* FilterOrderCell.xib */,
 			);
 			path = "Filter Cell";
 			sourceTree = "<group>";
@@ -410,13 +432,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A14F6D420B80757007738A3 /* DetailInfoWindowController.xib in Resources */,
 				6A92461220B3E7A400761F50 /* SearchBarView.xib in Resources */,
 				6A83126220B669F500DDEE3A /* LoadMoreView.xib in Resources */,
 				6A372EAB20B283FD00E62CCF /* LaunchScreen.storyboard in Resources */,
 				6A3D8A9720B7A76A004BCC88 /* FilterRadiusCell.xib in Resources */,
+				6A14F6D020B7FD6D007738A3 /* DetailInfoWindow.xib in Resources */,
 				6A372EA820B283FD00E62CCF /* Assets.xcassets in Resources */,
 				6AB1E29920B46C8E0089CAA8 /* AccessibilityCell.xib in Resources */,
-				6A3D8A9B20B7A784004BCC88 /* FilterOrderCell.xib in Resources */,
 				6A372EA320B283FD00E62CCF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,10 +512,12 @@
 				6A83125B20B6374F00DDEE3A /* SearchLocationDatasource.swift in Sources */,
 				6A8011A520B4108F001EA7EF /* AccessibilityView.swift in Sources */,
 				6A8011AB20B4641B001EA7EF /* SearchLocationViewController.swift in Sources */,
+				6A14F6D320B80757007738A3 /* DetailInfoWindowController.swift in Sources */,
 				6AB1E29820B46C8E0089CAA8 /* AccessibilityCell.swift in Sources */,
 				6A8011B120B46446001EA7EF /* DetailLocationViewController.swift in Sources */,
 				6A83126A20B678CB00DDEE3A /* RefreshControl.swift in Sources */,
 				6AEE6B2320B28B9100A72BF6 /* Result.swift in Sources */,
+				6A14F6CE20B7FD35007738A3 /* DetailInfoWindow.swift in Sources */,
 				6AEE6B2920B2A2FB00A72BF6 /* RequestType.swift in Sources */,
 				6A83126620B676D300DDEE3A /* UIColorExtension.swift in Sources */,
 				6AEE6B3120B2C6F400A72BF6 /* MapViewController.swift in Sources */,
@@ -502,7 +527,6 @@
 				6A8011A220B40C4B001EA7EF /* ArrayExtension.swift in Sources */,
 				6A83126420B6767600DDEE3A /* Style.swift in Sources */,
 				6A3D8A9D20B7D4AE004BCC88 /* CacheManager.swift in Sources */,
-				6A3D8A9A20B7A784004BCC88 /* FilterOrderCell.swift in Sources */,
 				6AEE6B1F20B28AA000A72BF6 /* LoadingIndicator.swift in Sources */,
 				6A8011A920B414B8001EA7EF /* ClusterView.swift in Sources */,
 				6ADB44E220B320D50015260E /* Dictionary.swift in Sources */,
