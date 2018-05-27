@@ -114,6 +114,7 @@ extension MapViewController {
             let infoWindowViewController = self.setupInfoWindow(marker: marker)
             let span = self.mapView.region.span
             self.mapView.setRegion(MKCoordinateRegion(center: marker.coordinate, span: MKCoordinateSpan(latitudeDelta: span.latitudeDelta/3, longitudeDelta: span.longitudeDelta/3)), animated: true)
+            self.mapView.selectAnnotation(marker, animated: true)
             self.present(infoWindowViewController, animated: true, completion: nil)
         } else {
             let accessMarker = AccessibilityMaker(building: building)
@@ -121,6 +122,9 @@ extension MapViewController {
             let span = self.mapView.region.span
             self.mapView.setRegion(MKCoordinateRegion(center: accessMarker.coordinate, span: MKCoordinateSpan(latitudeDelta: span.latitudeDelta/3, longitudeDelta: span.longitudeDelta/3)), animated: true)
             self.mapView.selectAnnotation(accessMarker, animated: true)
+            let infoWindowViewController = self.setupInfoWindow(marker: accessMarker)
+            self.present(infoWindowViewController, animated: true, completion: nil)
+            
         }
     }
     private func removeMarkers() {
@@ -238,6 +242,15 @@ extension MapViewController {
         
     }
     
+    func showLocation(idetifier: String) {
+        let stringArray = idetifier.split{$0 == "."}.map(String.init)
+        let blockID = stringArray.last
+        for annotation in self.mapView.annotations {
+            if let annotation = annotation as? AccessibilityMaker, annotation.building.blockId == blockID {
+                setCameraLocation(building: annotation.building)
+            }
+        }
+    }
     
 }
 

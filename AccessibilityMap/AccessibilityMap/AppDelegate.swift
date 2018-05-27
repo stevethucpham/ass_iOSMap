@@ -99,3 +99,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+//MARK: - Spotlight Search
+extension AppDelegate {
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        // Called when Spotlight item tapped. Do anything with specified data.
+        SpotLightManager.shared.spotlightItemTapAction(userActivity)
+        
+        return true
+    }
+}

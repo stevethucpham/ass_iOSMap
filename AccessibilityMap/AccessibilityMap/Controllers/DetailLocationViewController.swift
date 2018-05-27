@@ -112,12 +112,14 @@ extension DetailLocationViewController {
         let locationService = LocationService(context: Constant.managedObjectContext)
         locationService.insertLocation(building: building)
         locationService.saveChanges(completion: completion)
+        SpotLightManager.shared.indexItem(title: building.name.capitalized, desc: building.address, identifier: building.blockId , keywords: [building.name, building.address])
     }
     
     private func removeLocation(location: Location, completion: (_ completion: Bool) -> ()) {
         let locationService = LocationService(context: Constant.managedObjectContext)
         locationService.delete(location: location)
         locationService.saveChanges(completion: completion)
+        SpotLightManager.shared.deleteItemById(["com.swinburne.accessibilitymap.\(location.blockID)"])
     }
     
     private func locationExist(blockID: Int) -> Location? {

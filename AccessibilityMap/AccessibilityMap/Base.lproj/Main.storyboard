@@ -39,7 +39,7 @@
                                     <constraint firstAttribute="height" constant="60" id="VEi-FZ-wrb"/>
                                     <constraint firstAttribute="width" secondItem="qwK-IA-Ezn" secondAttribute="height" multiplier="1:1" id="hua-Y6-Amu"/>
                                 </constraints>
-                                <state key="normal" image="bookmark_fill"/>
+                                <state key="normal" image="bookmark_button"/>
                                 <connections>
                                     <action selector="bookmarkButtonClicked:" destination="Kqo-tw-E9e" eventType="touchUpInside" id="gcA-Os-gUq"/>
                                 </connections>
@@ -337,9 +337,9 @@
     </scenes>
     <resources>
         <image name="back_button" width="25" height="25"/>
-        <image name="bookmark_fill" width="50" height="50"/>
+        <image name="bookmark_button" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="g64-Iw-bg5"/>
+        <segue reference="DHL-QV-efJ"/>
     </inferredMetricsTieBreakers>
 </document>

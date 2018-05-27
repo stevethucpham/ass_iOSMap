@@ -12,6 +12,7 @@ import UIKit
 struct Constant {
     static let baseURL = "https://data.melbourne.vic.gov.au/resource/q8hp-qgps.json?"
     static let appToken = "GxusT0nELv09s1GmHnb1osV1d"
+    static let google_API_Key = "AIzaSyDdG_t--takKJ5XsQ2eaLdpjG9NJ_RB-eo"
     static let appDelegate = UIApplication.shared.delegate as! AppDelegate
     static let managedObjectContext =  appDelegate.persistentContainer.viewContext
     

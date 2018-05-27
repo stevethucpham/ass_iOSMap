@@ -78,7 +78,10 @@ struct SpotLightManager {
                 if navigationController.viewControllers.count > 1 {
                     navigationController.viewControllers.removeLast()
                 }
-                
+                if let mapViewController = navigationController.viewControllers.first as? MapViewController {
+                    
+//                    mapViewController.showLocation(idetifier: selectedItem)
+                }
             }
         }
     }
