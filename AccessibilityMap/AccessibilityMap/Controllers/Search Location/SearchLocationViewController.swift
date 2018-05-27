@@ -8,6 +8,7 @@
 
 import UIKit
 import SkeletonView
+import CoreLocation
 
 protocol SearchLocationDelegate {
     //    func
@@ -22,13 +23,16 @@ class SearchLocationViewController: UIViewController {
     lazy var searchBar: UISearchBar = UISearchBar(frame: CGRect.zero)
     var searchQuery: String? = nil
     var cancelQuery: Bool = false
-    
+    var currentLocation: CLLocation!
+    var selectMap: ((_ building: Building) -> Void)?
     @IBOutlet weak var messageContainer: UIView!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var messageButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
         searchTableView.isSkeletonable = true
         setupTableView()
         currentDatasource = searchDatasource
@@ -40,6 +44,11 @@ class SearchLocationViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = true
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         refreshControl.beginRefreshing()
@@ -47,12 +56,21 @@ class SearchLocationViewController: UIViewController {
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
         cancelSearch()
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     
     @IBAction func retryButtonClicked(_ sender: Any) {
         loadFirstPage()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailLocationViewController = segue.destination as? DetailLocationViewController {
+            detailLocationViewController.building = sender as! Building
+            detailLocationViewController.currentLocation = self.currentLocation
+            detailLocationViewController.selectMap = selectMap
+        }
     }
 }
 
@@ -77,7 +95,6 @@ extension SearchLocationViewController {
         searchTableView.register(UINib(nibName: "AccessibilityCell", bundle: nil), forCellReuseIdentifier: "accessibilityCell")
         searchTableView.addSubview(refreshControl)
         searchTableView.sendSubview(toBack: refreshControl)
-        
     }
     
     func onRefresh() {
@@ -103,10 +120,9 @@ extension SearchLocationViewController {
     }
     
     func loadMore() {
-//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
         currentDatasource.loadMore { [unowned self] (result) in
             DispatchQueue.main.async {
-//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch result {
                 case .success(nil):
                     self.searchTableView.reloadData()
@@ -132,8 +148,13 @@ extension SearchLocationViewController {
                 LoadingIndicator.shared.hide()
                 switch result {
                 case .success(nil):
+                    if self.searchTableView.tableFooterView == nil {
+                       self.searchTableView.tableFooterView = LoadMoreView()
+                    }
+                    
                     self.searchTableView.reloadData()
                     self.refreshControl.endRefreshing()
+                    
                     if self.currentDatasource.buildings.count == 0 {
                         self.setMessageViewHidden(false, message: "There is no location", isButtonHidden: true)
                     }
@@ -157,6 +178,10 @@ extension SearchLocationViewController {
 extension SearchLocationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showDetailViewController", sender: currentDatasource.buildings[indexPath.row])
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -209,7 +234,6 @@ extension SearchLocationViewController: UISearchBarDelegate {
             DispatchQueue.main.async {
                 self.refreshControl.endRefreshing()
                 self.view.hideSkeleton()
-//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch result {
                 case .success(nil):
                     if self.currentDatasource.buildings.count == 0 {

@@ -43,6 +43,22 @@ class LocationService {
 //        newItem.uuid = UUID()
 //    }
     
+    func insertLocation(building: Building) {
+        let newItem =  NSEntityDescription.insertNewObject(forEntityName: Location.entityName, into: context) as! Location
+        newItem.blockID = Int16(building.blockId)!
+        newItem.accessibilityDes = building.accessibilityDes
+        newItem.address = building.address
+        newItem.latitude = building.latitude
+        newItem.longitude = building.longitude
+        newItem.name = building.name
+        newItem.rating = Int16(building.rating)
+        newItem.type = building.type
+        newItem.suburb = building.suburb
+    }
+    
+    func getAll() -> [Location] {
+        return get(withPredicate: NSPredicate(value:true))
+    }
     /// Insert expense into vehicle
     ///
     /// - Parameters:
@@ -65,9 +81,7 @@ class LocationService {
 //    }
 
     
-//    func getAll()-> [Vehicle] {
-//        return get(withPredicate: NSPredicate(value:true))
-//    }
+
     
 //    func getExpenses(byVehicle vehicle: Vehicle) -> [Expense] {
 //        return (vehicle.expenses?.toArray())!
@@ -81,49 +95,31 @@ class LocationService {
 //        return nil
 //    }
     
-//    func getExpense(byUUID uuid: UUID) -> Expense? {
-//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Expense.entityName)
-//        let predicate = NSPredicate(format: "uuid == %@", uuid as CVarArg)
-//        fetchRequest.predicate = predicate
-//
-//        do {
-//            let response = try context.fetch(fetchRequest) as! [Expense]
-//            return response.first
-//
-//        } catch let error as NSError {
-//            // failure
-//            print(error)
-//            return nil
-//        }
-//    }
+    func getLocation(byBlockID blockID: Int) -> Location? {
+        let predicate = NSPredicate(format: "blockID == %d", blockID)
+        return get(withPredicate: predicate).first
+    }
     
-//    func get(withPredicate queryPredicate: NSPredicate) -> [Vehicle] {
-//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Vehicle.entityName)
-//
-//        fetchRequest.predicate = queryPredicate
-//
-//        do {
-//            let response = try context.fetch(fetchRequest)
-//            return response as! [Vehicle]
-//
-//        } catch let error as NSError {
-//            // failure
-//            print(error)
-//            return [Vehicle]()
-//        }
-//    }
     
-//    func delete(expense: Expense) {
-//        context.delete(expense)
-//    }
-//    
-//    func deleteExpense(expense: Expense, byVehicle vehicle: Vehicle) {
-//        vehicle.removeFromExpenses(expense)
-//    }
-//    
-//    func delete(vehicle: Vehicle) {
-//        context.delete(vehicle)
-//    }
+    func get(withPredicate queryPredicate: NSPredicate) -> [Location] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Location.entityName)
+
+        fetchRequest.predicate = queryPredicate
+
+        do {
+            let response = try context.fetch(fetchRequest)
+            return response as! [Location]
+
+        } catch let error as NSError {
+            // failure
+            print(error)
+            return [Location]()
+        }
+    }
+    
+    func delete(location: Location) {
+        context.delete(location)
+    }
     
     // Saves all changes
     func saveChanges(completion: (_ completion: Bool) -> ()) {

@@ -37,7 +37,6 @@ struct Building: Decodable {
         let values = try decoder.container(keyedBy: BuildingKeys.self)
         address = try values.decode(String.self, forKey: .address)
         name = try values.decode(String.self, forKey: .name)
-//        constructionYear = try Int(values.decode(String.self, forKey: .constructionYear)) ?? 0
         blockId = try values.decode(String.self, forKey: .blockId)
         longitude = try Double(values.decode(String.self, forKey: .longitude)) ?? 0.0
         latitude = try Double(values.decode(String.self, forKey: .latitude)) ?? 0.0
@@ -45,6 +44,18 @@ struct Building: Decodable {
         rating = try Int(values.decode(String.self, forKey: .rating)) ?? 0
         type = try values.decode(String.self, forKey: .type)
         accessibilityDes = try values.decode(String.self, forKey: .accessibilityDes)
+    }
+    
+    init (location: Location) {
+        self.address = location.address!
+        self.name = location.name!
+        self.blockId = String(location.blockID)
+        self.longitude = location.longitude
+        self.latitude = location.latitude
+        self.suburb = location.suburb!
+        self.rating = Int(location.rating)
+        self.type = location.type!
+        self.accessibilityDes = location.accessibilityDes!
     }
 
 }

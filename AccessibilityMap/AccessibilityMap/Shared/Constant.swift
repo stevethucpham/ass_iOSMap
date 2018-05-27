@@ -12,6 +12,8 @@ import UIKit
 struct Constant {
     static let baseURL = "https://data.melbourne.vic.gov.au/resource/q8hp-qgps.json?"
     static let appToken = "GxusT0nELv09s1GmHnb1osV1d"
+    static let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    static let managedObjectContext =  appDelegate.persistentContainer.viewContext
     
     static let SCALE_VALUE_HEIGHT_DEVICE = (DeviceType.IS_IPAD ? 1.8 : (DeviceType.IS_IPHONE_6 ? 1.174 : (DeviceType.IS_IPHONE_6P ? 1.295 : 1.0))) as CGFloat
     

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailInfoCell" rowHeight="135" id="KGk-i7-Jjw" customClass="DetailInformationCell" customModule="AccessibilityMap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="134.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="huD-ND-LPN">
+                        <rect key="frame" x="15" y="10" width="0.0" height="114.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WU-9S-daP">
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="43.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="IAa-Wi-dRB" customClass="CosmosView" customModule="AccessibilityMap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="48.5" width="70" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                        <color key="value" red="1" green="0.44705882349999998" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suburb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYr-mo-aWa">
+                                <rect key="frame" x="0.0" y="73.5" width="50" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q22-UR-iqU">
+                                <rect key="frame" x="0.0" y="96.5" width="37.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wy5-g4-WwB">
+                        <rect key="frame" x="275" y="8" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="6qc-cQ-9Zx"/>
+                            <constraint firstAttribute="width" secondItem="Wy5-g4-WwB" secondAttribute="height" multiplier="1:1" id="eQA-2l-PMU"/>
+                        </constraints>
+                        <state key="normal" image="bookmark_notfill"/>
+                        <connections>
+                            <action selector="bookmarkClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Rd9-hS-zTW"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="huD-ND-LPN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="6mJ-oE-2pi"/>
+                    <constraint firstItem="Wy5-g4-WwB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Axz-SI-zAe"/>
+                    <constraint firstAttribute="trailing" secondItem="Wy5-g4-WwB" secondAttribute="trailing" constant="10" id="DNe-Xl-7fa"/>
+                    <constraint firstItem="huD-ND-LPN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="h8E-0J-Ypj"/>
+                    <constraint firstAttribute="bottom" secondItem="huD-ND-LPN" secondAttribute="bottom" constant="10" id="neQ-92-rW8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="accessDescription" destination="q22-UR-iqU" id="qqC-kf-hKB"/>
+                <outlet property="accessTypeLabel" destination="eYr-mo-aWa" id="co6-Ob-XfP"/>
+                <outlet property="bookMarkButton" destination="Wy5-g4-WwB" id="AKp-xv-Vup"/>
+                <outlet property="buildingNameLabel" destination="2WU-9S-daP" id="fUg-LV-ENr"/>
+                <outlet property="ratingView" destination="IAa-Wi-dRB" id="Ew5-1I-qQb"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="178.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bookmark_notfill" width="50" height="50"/>
+    </resources>
+</document>

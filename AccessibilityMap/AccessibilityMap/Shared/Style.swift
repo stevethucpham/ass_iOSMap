@@ -10,6 +10,8 @@ import UIKit
 
 struct Styles {
     struct Color {
-        static let navigationBar        = "#1E1D2A"
+        static let navigationBar        = "#FF3528"
+        static let greenMarker = "#009933"
+        static let lowRatingMarker = "#ff9933"
     }
 }

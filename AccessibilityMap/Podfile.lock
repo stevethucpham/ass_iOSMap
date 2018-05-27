@@ -1,12 +1,14 @@
 PODS:
   - Alamofire (4.7.2)
   - BLMultiColorLoader (0.1.6)
+  - ParallaxHeader (2.0.0)
   - ReachabilitySwift (3)
   - SkeletonView (1.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - BLMultiColorLoader
+  - ParallaxHeader (~> 2.0.0)
   - ReachabilitySwift
   - SkeletonView
 
@@ -14,15 +16,17 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - BLMultiColorLoader
+    - ParallaxHeader
     - ReachabilitySwift
     - SkeletonView
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   BLMultiColorLoader: 9208e4541a88ec12e0da5af0e3619a805ab7ff6e
+  ParallaxHeader: fb6ee97915626454f3c029a97b424f79a777c642
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SkeletonView: d68962d45d1af038f6a110d2274b183df8f82752
 
-PODFILE CHECKSUM: 7fb11fb71d0812736c0adfcf7da2f127578259fb
+PODFILE CHECKSUM: 9542b45af2aed69117b45bca4637fcfe32c85c4c
 
 COCOAPODS: 1.5.2

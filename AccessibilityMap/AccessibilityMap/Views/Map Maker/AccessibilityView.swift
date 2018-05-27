@@ -12,9 +12,16 @@ class AccessibilityView: MKMarkerAnnotationView {
     
     override var annotation: MKAnnotation? {
         willSet {
-            if (newValue as? AccessibilityMaker) != nil {
+            if let marker = newValue as? AccessibilityMaker {
                 clusteringIdentifier = "building"
-                markerTintColor = UIColor.blue
+                if marker.building.rating == 3 {
+                    markerTintColor = UIColor.blue
+                } else if marker.building.rating == 2 {
+                    markerTintColor = UIColor(hexString: Styles.Color.greenMarker)
+                } else {
+                    markerTintColor = UIColor(hexString: Styles.Color.lowRatingMarker)
+                }
+                
                 glyphImage = UIImage(named: "map_marker")
                 displayPriority = .defaultHigh
                 titleVisibility = .visible

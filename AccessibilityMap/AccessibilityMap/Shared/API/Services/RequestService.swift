@@ -35,7 +35,7 @@ extension RequestService: RequestType {
         }
     }
     var parameters: [String: Any]? {
-        let filterParam: [String: Any] = ["$select" : "block_id, accessibility_rating, accessibility_type, accessibility_type_description, lower(building_name), location, street_address,suburb,x_coordinate,y_coordinate", "$group" : "block_id, accessibility_rating, accessibility_type, accessibility_type_description, lower(building_name), location, street_address,suburb,x_coordinate,y_coordinate"]
+        let filterParam: [String: Any] = ["$select" : "block_id, accessibility_rating, accessibility_type, accessibility_type_description, lower(building_name), location, street_address,suburb,x_coordinate,y_coordinate", "$group" : "block_id, accessibility_rating, accessibility_type, accessibility_type_description, lower(building_name), location, street_address,suburb,x_coordinate,y_coordinate", "$order" : "block_id"]
         switch self {
         case .getBuilding(let paging, let filterData):
             var searchParam: [String: Any] = filterParam.dictByConcatinating(["$where" : "building_name!='' AND accessibility_type!='' AND census_year=2016"])
@@ -59,7 +59,7 @@ extension RequestService: RequestType {
                 return searchParam
             }
             if let filterData = filterData {
-                searchParam = filterParam.dictByConcatinating(["$where" : "building_name!='' AND \(searchNameParam) AND accessibility_type!='' AND census_year = 2016 OAND \(filterData)"])
+                searchParam = filterParam.dictByConcatinating(["$where" : "building_name!='' AND \(searchNameParam) AND accessibility_type!='' AND census_year = 2016 AND \(filterData)"])
             }
             return searchParam.dictByConcatinating(paging.toDict())
         }
