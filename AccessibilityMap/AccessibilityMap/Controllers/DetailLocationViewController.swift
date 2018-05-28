@@ -43,6 +43,14 @@ class DetailLocationViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func shareButtonClicked(_ sender: Any) {
+        let text = building.name.capitalized
+        let imageView = self.tableView.parallaxHeader.view as! ImageLoadingView
+        let shareAll = [text , imageView.image!] as [Any]
+        let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+    }
 }
 
 extension DetailLocationViewController: UITableViewDelegate {

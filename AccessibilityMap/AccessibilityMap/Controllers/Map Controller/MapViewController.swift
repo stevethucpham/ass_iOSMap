@@ -202,8 +202,6 @@ extension MapViewController {
     
     private func setupBookmarkButton() {
         self.bookMarkButton.layer.cornerRadius = 30
-//        self.bookMarkButton.layer.borderColor = UIColor.lightGray.cgColor
-//        self.bookMarkButton.layer.borderWidth = 1.0
     }
     
     func registerAnnotationViewClasses() {

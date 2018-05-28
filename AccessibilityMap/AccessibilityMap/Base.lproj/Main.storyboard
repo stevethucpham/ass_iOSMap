@@ -45,13 +45,13 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s60-OY-cJi" customClass="LegendView" customModule="AccessibilityMap" customModuleProvider="target">
-                                <rect key="frame" x="16" y="507" width="130" height="140"/>
+                                <rect key="frame" x="16" y="507" width="140" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="s60-OY-cJi" firstAttribute="width" secondItem="29P-RI-Vjx" secondAttribute="width" multiplier="130/375" id="0Rl-0a-sAW"/>
+                            <constraint firstItem="s60-OY-cJi" firstAttribute="width" secondItem="29P-RI-Vjx" secondAttribute="width" multiplier="140/375" id="0Rl-0a-sAW"/>
                             <constraint firstItem="E9S-eV-2n5" firstAttribute="bottom" secondItem="qwK-IA-Ezn" secondAttribute="bottom" constant="90" id="3O1-AK-1ZA"/>
                             <constraint firstItem="E9S-eV-2n5" firstAttribute="trailing" secondItem="29P-RI-Vjx" secondAttribute="trailing" id="5FW-5k-sME"/>
                             <constraint firstItem="29P-RI-Vjx" firstAttribute="top" secondItem="iZH-fh-P1c" secondAttribute="top" id="8Z0-Tx-Ku7"/>
@@ -242,7 +242,11 @@
                                 <action selector="backButtonClicked:" destination="Fs6-8Y-sFE" id="1KP-Aw-7TU"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Share" id="yXO-AE-ahP"/>
+                        <barButtonItem key="rightBarButtonItem" image="share" id="yXO-AE-ahP">
+                            <connections>
+                                <action selector="shareButtonClicked:" destination="Fs6-8Y-sFE" id="RgD-6w-oek"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="uah-lM-qXY" id="PD7-L5-Oi6"/>
@@ -348,8 +352,9 @@
     <resources>
         <image name="back_button" width="25" height="25"/>
         <image name="bookmark_button" width="24" height="24"/>
+        <image name="share" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DHL-QV-efJ"/>
+        <segue reference="Ieo-7R-I1y"/>
     </inferredMetricsTieBreakers>
 </document>
