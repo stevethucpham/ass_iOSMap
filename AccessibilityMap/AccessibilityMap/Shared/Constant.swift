@@ -13,7 +13,8 @@ struct Constant {
     static let baseURL = "https://data.melbourne.vic.gov.au/resource/q8hp-qgps.json?"
     static let appToken = "GxusT0nELv09s1GmHnb1osV1d"
     // static let google_API_Key = "AIzaSyAL1N6A9n1Y7B5fueqPTN01uJo_hlVsrck"
-    static let google_API_Key = "AIzaSyD-aowjXER5u9P3x8Yx6z3jOGNmAkCaHgw"
+//    static let google_API_Key = "AIzaSyD-aowjXER5u9P3x8Yx6z3jOGNmAkCaHgw"
+    static let google_API_Key = "AIzaSyCUjLjqbLkChflp47cAddcJUDM70LO2a5o"
     static let appDelegate = UIApplication.shared.delegate as! AppDelegate
     static let managedObjectContext =  appDelegate.persistentContainer.viewContext
     

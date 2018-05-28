@@ -17,6 +17,7 @@
 		6A14F6E120B83202007738A3 /* DetailAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A14F6DF20B83202007738A3 /* DetailAddressCell.swift */; };
 		6A14F6E220B83202007738A3 /* DetailAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A14F6E020B83202007738A3 /* DetailAddressCell.xib */; };
 		6A14F6E420BB183F007738A3 /* UIImage+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A14F6E320BB183F007738A3 /* UIImage+Network.swift */; };
+		6A14F6E620BBBBFD007738A3 /* ImageLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A14F6E520BBBBFD007738A3 /* ImageLoadingView.swift */; };
 		6A372E9E20B283FD00E62CCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A372E9D20B283FD00E62CCF /* AppDelegate.swift */; };
 		6A372EA320B283FD00E62CCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A372EA120B283FD00E62CCF /* Main.storyboard */; };
 		6A372EA620B283FD00E62CCF /* AccessibilityMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A372EA420B283FD00E62CCF /* AccessibilityMap.xcdatamodeld */; };
@@ -74,6 +75,7 @@
 		6A14F6DF20B83202007738A3 /* DetailAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAddressCell.swift; sourceTree = "<group>"; };
 		6A14F6E020B83202007738A3 /* DetailAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailAddressCell.xib; sourceTree = "<group>"; };
 		6A14F6E320BB183F007738A3 /* UIImage+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Network.swift"; sourceTree = "<group>"; };
+		6A14F6E520BBBBFD007738A3 /* ImageLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadingView.swift; sourceTree = "<group>"; };
 		6A372E9A20B283FD00E62CCF /* AccessibilityMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessibilityMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A372E9D20B283FD00E62CCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A372EA220B283FD00E62CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				6A8011A320B4107D001EA7EF /* Map Maker */,
 				6A92460C20B3E74500761F50 /* Search Bar */,
 				6AEE6B1E20B28AA000A72BF6 /* LoadingIndicator.swift */,
+				6A14F6E520BBBBFD007738A3 /* ImageLoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				6AEE6B2D20B2AD3200A72BF6 /* HTTPClient.swift in Sources */,
 				6A14F6E120B83202007738A3 /* DetailAddressCell.swift in Sources */,
 				6A92461020B3E79800761F50 /* SearchBarView.swift in Sources */,
+				6A14F6E620BBBBFD007738A3 /* ImageLoadingView.swift in Sources */,
 				6A8011A720B410E1001EA7EF /* AccessibilityMaker.swift in Sources */,
 				6A8011A220B40C4B001EA7EF /* ArrayExtension.swift in Sources */,
 				6A83126420B6767600DDEE3A /* Style.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 protocol DetailInfoWindowDelegate {
     func dimissViewController(annotation: MKAnnotation)
@@ -21,6 +22,7 @@ class DetailInfoWindowController: UIViewController {
     var delegate: DetailInfoWindowDelegate!
     var currentMarker: MKAnnotation!
     var distance: Double!
+    var currentLocation: CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,11 @@ class DetailInfoWindowController: UIViewController {
         infoWindowView.distanceLabel.text = String(format: "%.2f km", distance/1000)
     }
 
+    @IBAction func directionButtonClicked(_ sender: Any) {
+        let directionString = "http://maps.apple.com/?saddr=\(self.currentLocation.coordinate.latitude),\(self.currentLocation.coordinate.longitude)&daddr=\(String(describing: (self.building.latitude))),\(String(describing: (self.building.longitude)))"
+        UIApplication.shared.open(URL(string: directionString)!, options: [:], completionHandler: nil)
+    }
+    
     @IBAction func selectOutSide(_ sender: Any) {
         delegate.dimissViewController(annotation: currentMarker)
         dismiss(animated: true, completion: nil)

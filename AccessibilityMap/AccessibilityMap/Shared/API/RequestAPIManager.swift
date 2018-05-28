@@ -48,7 +48,7 @@ class RequestAPIManager {
         }
         let filter = GMSAutocompleteFilter()
         filter.type = .noFilter
-        let query = "\(buildingName) \(suburb), VIC, Australia"
+        let query = "\(buildingName) , VIC, Australia"
         GMSPlacesClient.shared().autocompleteQuery(query, bounds: nil, filter: filter) { (result, error) in
             if let error = error {
                 completionHandler(.failure(error))

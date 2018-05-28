@@ -104,6 +104,7 @@ extension MapViewController {
         let annotation = self.getAnnotation(building: building)
         if let marker = annotation {
             let infoWindowViewController = self.setupInfoWindow(marker: marker)
+            infoWindowViewController.currentLocation = self.currentLocation
             self.present(infoWindowViewController, animated: true, completion: nil)
         }
     }
@@ -198,8 +199,8 @@ extension MapViewController {
     
     private func setupBookmarkButton() {
         self.bookMarkButton.layer.cornerRadius = 30
-        self.bookMarkButton.layer.borderColor = UIColor.lightGray.cgColor
-        self.bookMarkButton.layer.borderWidth = 1.0
+//        self.bookMarkButton.layer.borderColor = UIColor.lightGray.cgColor
+//        self.bookMarkButton.layer.borderWidth = 1.0
     }
     
     func registerAnnotationViewClasses() {
@@ -280,6 +281,7 @@ extension MapViewController: MKMapViewDelegate {
         if let marker = view.annotation as? AccessibilityMaker {
             mapView.setCenter(marker.coordinate, animated: false)
             let infoWindowController = self.setupInfoWindow(marker: marker)
+            infoWindowController.currentLocation = currentLocation
             self.present(infoWindowController, animated: true, completion: nil)
         }
     }

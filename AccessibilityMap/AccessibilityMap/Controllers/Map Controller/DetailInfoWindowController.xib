@@ -32,17 +32,26 @@
                         <action selector="selectInfoWindow:" destination="-1" eventType="touchUpInside" id="oSi-iL-H5y"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDD-VU-hrk">
+                    <rect key="frame" x="288" y="617" width="62" height="30"/>
+                    <state key="normal" title="Direction"/>
+                    <connections>
+                        <action selector="directionButtonClicked:" destination="-1" eventType="touchUpInside" id="KSn-lS-2xH"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="3jc-qG-dMP" firstAttribute="top" secondItem="CrZ-Vd-97E" secondAttribute="top" id="2p5-qk-uHr"/>
                 <constraint firstItem="3jc-qG-dMP" firstAttribute="trailing" secondItem="CrZ-Vd-97E" secondAttribute="trailing" id="9qt-Ta-26G"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CrZ-Vd-97E" secondAttribute="trailing" constant="15" id="Cr8-dx-eD8"/>
+                <constraint firstItem="bDD-VU-hrk" firstAttribute="bottom" secondItem="CrZ-Vd-97E" secondAttribute="bottom" id="Fhn-yh-kur"/>
                 <constraint firstItem="CrZ-Vd-97E" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1/4" id="IIS-eY-4ZX"/>
                 <constraint firstItem="CrZ-Vd-97E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="UHh-H4-7O7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CrZ-Vd-97E" secondAttribute="bottom" constant="20" id="V7j-B9-BmO"/>
                 <constraint firstItem="3jc-qG-dMP" firstAttribute="bottom" secondItem="CrZ-Vd-97E" secondAttribute="bottom" id="cTI-qg-eBa"/>
                 <constraint firstItem="3jc-qG-dMP" firstAttribute="leading" secondItem="CrZ-Vd-97E" secondAttribute="leading" id="nnQ-1Z-jqJ"/>
+                <constraint firstItem="bDD-VU-hrk" firstAttribute="trailing" secondItem="CrZ-Vd-97E" secondAttribute="trailing" constant="-10" id="vkx-dn-hui"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <connections>

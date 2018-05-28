@@ -11,13 +11,14 @@ import UIKit
 class DetailInfoWindow: UIView {
     
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var locationImageView: UIImageView!
+    @IBOutlet weak var locationImageView: ImageLoadingView!
     @IBOutlet weak var buildingNameLabel: UILabel!
     @IBOutlet weak var suburbLabel: UILabel!
     @IBOutlet weak var accessRatingView: CosmosView!
     @IBOutlet weak var accessTypeLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    var directionClick: (()->Void)?
     
     var building: Building! {
         didSet {
@@ -52,7 +53,14 @@ class DetailInfoWindow: UIView {
         containerView.layer.shadowOffset = CGSize.zero
         containerView.layer.shadowRadius = 10
         locationImageView.layer.cornerRadius = 5
+        locationImageView.layer.borderColor = UIColor.lightGray.cgColor
+        locationImageView.layer.borderWidth = 0.5
         addSubview(containerView)
     }
-
+    @IBAction func directionButtonClicked(_ sender: Any) {
+        if let clicked = directionClick {
+            clicked()
+        }
+    }
+    
 }

@@ -13,7 +13,7 @@ import UIKit
 class AccessibilityCell: UITableViewCell {
 
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var locationImage: UIImageView!
+    @IBOutlet weak var locationImage: ImageLoadingView!
     @IBOutlet weak var buildingNameLabel: UILabel!
     @IBOutlet weak var accessibilityRating: CosmosView!
     @IBOutlet weak var accessTypeLabel: UILabel!
@@ -35,7 +35,9 @@ class AccessibilityCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         accessibilityRating.isUserInteractionEnabled = false
-        self.locationImage.layer.cornerRadius = 5
+        locationImage.layer.cornerRadius = 5
+        locationImage.layer.borderColor = UIColor.lightGray.cgColor
+        locationImage.layer.borderWidth = 0.5
     }
     
 }

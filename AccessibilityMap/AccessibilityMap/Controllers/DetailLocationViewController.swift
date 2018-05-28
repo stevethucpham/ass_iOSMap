@@ -24,11 +24,11 @@ class DetailLocationViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         UIApplication.shared.statusBarStyle = .lightContent
         self.title = building.name.capitalized
-        let imageView = UIImageView()
+        let imageView = ImageLoadingView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 250))
         imageView.imageFromUrl(name: building.name, suburb: building.suburb)
-        imageView.contentMode = .scaleAspectFit
+//        imageView.contentMode = .scaleToFill
         tableView.parallaxHeader.view = imageView
-        tableView.parallaxHeader.height = 300
+        tableView.parallaxHeader.height = 250
         tableView.parallaxHeader.minimumHeight = 0
         tableView.parallaxHeader.mode = .topFill
         tableView.parallaxHeader.parallaxHeaderDidScrollHandler = { parallaxHeader in
