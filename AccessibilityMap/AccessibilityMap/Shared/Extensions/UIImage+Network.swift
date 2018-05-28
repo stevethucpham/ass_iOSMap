@@ -16,6 +16,8 @@ extension ImageLoadingView {
     /// - Parameter urlString: image link
     public func imageFromUrl(name: String, suburb: String) {
         image = nil
+        self.indicatorView.startAnimating()
+        self.noImageLabel.isHidden = true
         RequestAPIManager.shared.getPlaceImage(buildingName: name.capitalized, suburb: suburb) { (result) in
             switch result {
             case .success(let photo):

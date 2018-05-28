@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LegendView" customModule="AccessibilityMap" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Ved-OT-aon"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="231" height="180"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aey-7K-5je">
+                    <rect key="frame" x="10" y="0.0" width="211" height="170"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Legend" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNm-zw-Rjr">
+                            <rect key="frame" x="0.0" y="0.0" width="59.5" height="65"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vdk-k0-tpn">
+                            <rect key="frame" x="0.0" y="75" width="211" height="25"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="254" verticalHuggingPriority="252" image="legend_high_rating" translatesAutoresizingMaskIntoConstraints="NO" id="Yqz-D6-5Mb">
+                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="25" id="C9w-Ah-CMS"/>
+                                        <constraint firstAttribute="width" secondItem="Yqz-D6-5Mb" secondAttribute="height" multiplier="1:1" id="QkH-N0-90s"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High rating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Eq-Yc-1CB">
+                                    <rect key="frame" x="30" y="0.0" width="181" height="25"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CuN-qV-fut">
+                            <rect key="frame" x="0.0" y="110" width="211" height="25"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="251" image="legend_medium_rating" translatesAutoresizingMaskIntoConstraints="NO" id="cOg-lc-WcI">
+                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="cOg-lc-WcI" secondAttribute="height" multiplier="1:1" id="6HW-7Y-nhc"/>
+                                        <constraint firstAttribute="width" constant="25" id="eCJ-z4-EOh"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medium rating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smv-9X-0Y7">
+                                    <rect key="frame" x="30" y="0.0" width="181" height="25"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0Vb-K7-hoC">
+                            <rect key="frame" x="0.0" y="145" width="211" height="25"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" image="legend_low_rating" translatesAutoresizingMaskIntoConstraints="NO" id="272-wy-zCl">
+                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="272-wy-zCl" secondAttribute="height" multiplier="1:1" id="N4f-jb-DKa"/>
+                                        <constraint firstAttribute="width" constant="25" id="t3f-V9-rgR"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U92-rz-ZJO">
+                                    <rect key="frame" x="30" y="0.0" width="181" height="25"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="CuN-qV-fut" secondAttribute="trailing" id="8jp-Cm-svm"/>
+                        <constraint firstItem="CuN-qV-fut" firstAttribute="leading" secondItem="aey-7K-5je" secondAttribute="leading" id="SYR-YR-FXk"/>
+                        <constraint firstItem="vdk-k0-tpn" firstAttribute="leading" secondItem="aey-7K-5je" secondAttribute="leading" id="XfR-QM-DmP"/>
+                        <constraint firstAttribute="trailing" secondItem="0Vb-K7-hoC" secondAttribute="trailing" id="aC3-zK-LOS"/>
+                        <constraint firstItem="0Vb-K7-hoC" firstAttribute="leading" secondItem="aey-7K-5je" secondAttribute="leading" id="gm7-Vh-Adj"/>
+                        <constraint firstAttribute="trailing" secondItem="vdk-k0-tpn" secondAttribute="trailing" id="xS6-Kd-QPZ"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="aey-7K-5je" secondAttribute="trailing" constant="10" id="J5C-H5-Tjw"/>
+                <constraint firstItem="aey-7K-5je" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="SVx-cA-2iK"/>
+                <constraint firstItem="aey-7K-5je" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ZtK-Om-W6Q"/>
+                <constraint firstAttribute="bottom" secondItem="aey-7K-5je" secondAttribute="bottom" constant="10" id="zle-3h-mvH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-64.5" y="-49"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="legend_high_rating" width="48" height="48"/>
+        <image name="legend_low_rating" width="48" height="48"/>
+        <image name="legend_medium_rating" width="48" height="48"/>
+    </resources>
+</document>

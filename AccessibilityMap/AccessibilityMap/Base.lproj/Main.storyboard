@@ -44,17 +44,25 @@
                                     <action selector="bookmarkButtonClicked:" destination="Kqo-tw-E9e" eventType="touchUpInside" id="gcA-Os-gUq"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s60-OY-cJi" customClass="LegendView" customModule="AccessibilityMap" customModuleProvider="target">
+                                <rect key="frame" x="16" y="507" width="130" height="140"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="s60-OY-cJi" firstAttribute="width" secondItem="29P-RI-Vjx" secondAttribute="width" multiplier="130/375" id="0Rl-0a-sAW"/>
                             <constraint firstItem="E9S-eV-2n5" firstAttribute="bottom" secondItem="qwK-IA-Ezn" secondAttribute="bottom" constant="90" id="3O1-AK-1ZA"/>
                             <constraint firstItem="E9S-eV-2n5" firstAttribute="trailing" secondItem="29P-RI-Vjx" secondAttribute="trailing" id="5FW-5k-sME"/>
                             <constraint firstItem="29P-RI-Vjx" firstAttribute="top" secondItem="iZH-fh-P1c" secondAttribute="top" id="8Z0-Tx-Ku7"/>
                             <constraint firstItem="29P-RI-Vjx" firstAttribute="leading" secondItem="E9S-eV-2n5" secondAttribute="leading" id="Bto-N3-58K"/>
                             <constraint firstItem="29P-RI-Vjx" firstAttribute="height" secondItem="iZH-fh-P1c" secondAttribute="height" id="C1q-UJ-4yl"/>
                             <constraint firstAttribute="bottom" secondItem="29P-RI-Vjx" secondAttribute="bottom" id="CBX-Oz-kzf"/>
+                            <constraint firstItem="s60-OY-cJi" firstAttribute="leading" secondItem="E9S-eV-2n5" secondAttribute="leading" constant="16" id="CmP-aZ-qDJ"/>
                             <constraint firstItem="njN-OU-gzF" firstAttribute="leading" secondItem="E9S-eV-2n5" secondAttribute="leading" constant="10" id="GIA-AV-tiy"/>
                             <constraint firstItem="E9S-eV-2n5" firstAttribute="trailing" secondItem="njN-OU-gzF" secondAttribute="trailing" constant="10" id="JUp-n6-6cP"/>
+                            <constraint firstItem="E9S-eV-2n5" firstAttribute="bottom" secondItem="s60-OY-cJi" secondAttribute="bottom" constant="20" id="ROg-iU-tZ9"/>
+                            <constraint firstItem="s60-OY-cJi" firstAttribute="height" secondItem="iZH-fh-P1c" secondAttribute="height" multiplier="140/667" id="XUs-cV-kO2"/>
                             <constraint firstItem="E9S-eV-2n5" firstAttribute="trailing" secondItem="qwK-IA-Ezn" secondAttribute="trailing" constant="10" id="iWY-Kb-Ylb"/>
                             <constraint firstItem="njN-OU-gzF" firstAttribute="height" secondItem="29P-RI-Vjx" secondAttribute="height" multiplier="40/667" id="o87-MS-M9O"/>
                             <constraint firstItem="njN-OU-gzF" firstAttribute="top" secondItem="E9S-eV-2n5" secondAttribute="top" constant="10" id="rMt-97-92T"/>
@@ -64,6 +72,8 @@
                     <navigationItem key="navigationItem" id="sz5-kL-5M9"/>
                     <connections>
                         <outlet property="bookMarkButton" destination="qwK-IA-Ezn" id="ccX-IU-8vj"/>
+                        <outlet property="legendView" destination="s60-OY-cJi" id="hrq-Bo-SA7"/>
+                        <outlet property="legendViewBottomConstraint" destination="ROg-iU-tZ9" id="Top-yC-ict"/>
                         <outlet property="mapView" destination="29P-RI-Vjx" id="C2e-2V-7qa"/>
                         <outlet property="searchBarView" destination="njN-OU-gzF" id="L88-3g-Wl8"/>
                         <segue destination="Fs6-8Y-sFE" kind="show" identifier="showDetailViewController" id="DHL-QV-efJ"/>
@@ -340,6 +350,6 @@
         <image name="bookmark_button" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="g64-Iw-bg5"/>
+        <segue reference="DHL-QV-efJ"/>
     </inferredMetricsTieBreakers>
 </document>

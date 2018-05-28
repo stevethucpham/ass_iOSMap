@@ -15,6 +15,9 @@ class MapViewController: UIViewController {
     @IBOutlet weak var bookMarkButton: UIButton!
     @IBOutlet var searchBarView: SearchBarView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var legendView: LegendView!
+    @IBOutlet weak var legendViewBottomConstraint: NSLayoutConstraint!
+    
     var lastLocation: CLLocation = CLLocation(latitude: 0, longitude: 0)
     var currentLocation: CLLocation = CLLocation(latitude: 0, longitude: 0) {
         didSet {
@@ -254,7 +257,7 @@ extension MapViewController {
     }
     
 }
-
+// MARK: Map view delegate
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -283,6 +286,23 @@ extension MapViewController: MKMapViewDelegate {
             let infoWindowController = self.setupInfoWindow(marker: marker)
             infoWindowController.currentLocation = currentLocation
             self.present(infoWindowController, animated: true, completion: nil)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+            self.legendView.alpha = 0
+        }) { (isFinished) in
+            self.legendView.isHidden = true
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+             self.legendView.alpha = 1
+        }) { (isFinished) in
+           self.legendView.isHidden = false
         }
     }
 }

@@ -36,19 +36,19 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Building Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xh8-aB-ATX">
-                    <rect key="frame" x="145" y="37.5" width="220" height="31.5"/>
+                    <rect key="frame" x="145" y="37.5" width="220" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suburb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKK-Pi-QOI">
-                    <rect key="frame" x="145" y="121" width="220" height="17"/>
+                    <rect key="frame" x="145" y="110" width="220" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Access Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3Y-P7-dcs">
-                    <rect key="frame" x="145" y="99" width="220" height="17"/>
+                    <rect key="frame" x="145" y="88" width="220" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="NPy-7Q-gpc" customClass="CosmosView" customModule="AccessibilityMap" customModuleProvider="target">
-                    <rect key="frame" x="145" y="74" width="220" height="20"/>
+                    <rect key="frame" x="145" y="63" width="220" height="20"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
@@ -79,7 +79,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJ4-Bi-YYN">
-                    <rect key="frame" x="145" y="143" width="220" height="17"/>
+                    <rect key="frame" x="145" y="132" width="220" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -113,7 +113,6 @@
                 <constraint firstItem="KKK-Pi-QOI" firstAttribute="leading" secondItem="n3Y-P7-dcs" secondAttribute="leading" id="lnR-X0-CeI"/>
                 <constraint firstItem="n3Y-P7-dcs" firstAttribute="trailing" secondItem="NPy-7Q-gpc" secondAttribute="trailing" id="loD-Ey-vly"/>
                 <constraint firstItem="KKK-Pi-QOI" firstAttribute="trailing" secondItem="n3Y-P7-dcs" secondAttribute="trailing" id="ptF-8w-cSk"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="fJ4-Bi-YYN" secondAttribute="bottom" constant="40" id="zaF-wE-K7D"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

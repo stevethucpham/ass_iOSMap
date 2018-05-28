@@ -23,11 +23,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrZ-Vd-97E" customClass="DetailInfoWindow" customModule="AccessibilityMap" customModuleProvider="target">
-                    <rect key="frame" x="15" y="480.5" width="345" height="166.5"/>
+                    <rect key="frame" x="15" y="457" width="345" height="190"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jc-qG-dMP">
-                    <rect key="frame" x="15" y="480" width="345" height="166.5"/>
+                    <rect key="frame" x="15" y="456.5" width="345" height="190"/>
                     <connections>
                         <action selector="selectInfoWindow:" destination="-1" eventType="touchUpInside" id="oSi-iL-H5y"/>
                     </connections>
@@ -46,7 +46,7 @@
                 <constraint firstItem="3jc-qG-dMP" firstAttribute="trailing" secondItem="CrZ-Vd-97E" secondAttribute="trailing" id="9qt-Ta-26G"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CrZ-Vd-97E" secondAttribute="trailing" constant="15" id="Cr8-dx-eD8"/>
                 <constraint firstItem="bDD-VU-hrk" firstAttribute="bottom" secondItem="CrZ-Vd-97E" secondAttribute="bottom" id="Fhn-yh-kur"/>
-                <constraint firstItem="CrZ-Vd-97E" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1/4" id="IIS-eY-4ZX"/>
+                <constraint firstItem="CrZ-Vd-97E" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="190/667" id="IIS-eY-4ZX"/>
                 <constraint firstItem="CrZ-Vd-97E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="UHh-H4-7O7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CrZ-Vd-97E" secondAttribute="bottom" constant="20" id="V7j-B9-BmO"/>
                 <constraint firstItem="3jc-qG-dMP" firstAttribute="bottom" secondItem="CrZ-Vd-97E" secondAttribute="bottom" id="cTI-qg-eBa"/>

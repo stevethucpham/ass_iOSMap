@@ -48,7 +48,7 @@ class RequestAPIManager {
         }
         let filter = GMSAutocompleteFilter()
         filter.type = .noFilter
-        let query = "\(buildingName) , VIC, Australia"
+        let query = "\(buildingName) ,Melbourne VIC, Australia"
         GMSPlacesClient.shared().autocompleteQuery(query, bounds: nil, filter: filter) { (result, error) in
             if let error = error {
                 completionHandler(.failure(error))
@@ -72,22 +72,7 @@ class RequestAPIManager {
         }
     }
     
-    public func getPlaceID(buildingName: String, suburb: String, completionHandler: @escaping (_ result: Result<String>) -> Void)  {
-        let filter = GMSAutocompleteFilter()
-        filter.type = .noFilter
-        let query = "\(buildingName) \(suburb), VIC, Australia"
-        GMSPlacesClient.shared().autocompleteQuery(query, bounds: nil, filter: filter) { (result, error) in
-            if let error = error {
-                completionHandler(.failure(error))
-                return
-            }
-            if let result = result, result.count > 0 {
-                completionHandler(.success(result.first?.placeID))
-            } else {
-                completionHandler(.failure(RequestError.noImage("No Image")))
-            }
-        }
-    }
+
     
     public func getPhoto(placeID: String, completionHandler: @escaping (_ result: UIImage?, _ error: Error?) ->Void) {
         GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
