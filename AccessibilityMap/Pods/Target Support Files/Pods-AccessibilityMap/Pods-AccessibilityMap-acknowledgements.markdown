@@ -50,6 +50,14 @@ SOFTWARE.
 
 
 
+## GoogleMaps
+
+Copyright 2018 Google
+
+## GooglePlaces
+
+Copyright 2018 Google
+
 ## ParallaxHeader
 
 MIT License

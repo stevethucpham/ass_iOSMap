@@ -8,12 +8,18 @@
 
 import Foundation
 import Alamofire
+import GooglePlaces
+
+enum RequestError: Error {
+    case noImage (String)
+}
 
 class RequestAPIManager {
     
     private init () {}
     
     static let shared = RequestAPIManager()
+     private let cacheManager = CacheManager()
     
     public func getBuildingInRange(lat: Double, long: Double, radius: Int, filterData: String? = nil ,  completionHandler: @escaping (_ result: Result<[Building]>) -> Void) {
         request(type: .getBuildings(radius: radius, lat: lat, long: long, filterData: filterData)) { responseHandler in
@@ -30,6 +36,85 @@ class RequestAPIManager {
             case .failure(let error):
                 completionHandler(.failure(error))
                 break
+            }
+        }
+    }
+    
+    
+    public func getPlaceImage(buildingName: String, suburb: String, completionHandler: @escaping (_ result: Result<UIImage>) -> Void) {
+        if let imageFromCache = cacheManager.getImage(forKey: buildingName) {
+            completionHandler(.success(imageFromCache))
+            return
+        }
+        let filter = GMSAutocompleteFilter()
+        filter.type = .noFilter
+        let query = "\(buildingName) \(suburb), VIC, Australia"
+        GMSPlacesClient.shared().autocompleteQuery(query, bounds: nil, filter: filter) { (result, error) in
+            if let error = error {
+                completionHandler(.failure(error))
+                return
+            }
+            if let result = result, result.count > 0 {
+                self.getPhoto(placeID: (result.first?.placeID)!, completionHandler: { (photo, error) in
+                    if let error = error {
+                        completionHandler(.failure(error))
+                        return
+                    }
+                    if let photo = photo {
+                        self.cacheManager.setImage(image: photo, forKey: buildingName)
+                        completionHandler(.success(photo))
+                    }
+                    
+                })
+            } else {
+                completionHandler(.failure(RequestError.noImage("No Image")))
+            }
+        }
+    }
+    
+    public func getPlaceID(buildingName: String, suburb: String, completionHandler: @escaping (_ result: Result<String>) -> Void)  {
+        let filter = GMSAutocompleteFilter()
+        filter.type = .noFilter
+        let query = "\(buildingName) \(suburb), VIC, Australia"
+        GMSPlacesClient.shared().autocompleteQuery(query, bounds: nil, filter: filter) { (result, error) in
+            if let error = error {
+                completionHandler(.failure(error))
+                return
+            }
+            if let result = result, result.count > 0 {
+                completionHandler(.success(result.first?.placeID))
+            } else {
+                completionHandler(.failure(RequestError.noImage("No Image")))
+            }
+        }
+    }
+    
+    public func getPhoto(placeID: String, completionHandler: @escaping (_ result: UIImage?, _ error: Error?) ->Void) {
+        GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
+            if let error = error {
+                // TODO: handle the error.
+                print("Error: \(error.localizedDescription)")
+                completionHandler(nil, RequestError.noImage("No Image"))
+            } else {
+                if let firstPhoto = photos?.results.first {
+                    self.loadImageForMetadata(photoMetadata: firstPhoto, completionHandler: completionHandler)
+                } else {
+                    print("Error: no image")
+                    completionHandler(nil, RequestError.noImage("No Image"))
+                }
+            }
+        }
+    }
+    
+    
+    func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata, completionHandler: @escaping (_ result: UIImage?, _ error: Error?) ->Void) {
+        GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, constrainedTo: CGSize(width: 800, height: 600), scale: 1.0) { (photo, error) in
+            if let error = error {
+                // TODO: handle the error.
+                print("Error: \(error.localizedDescription)")
+                completionHandler(nil, RequestError.noImage("No Image"))
+            } else {
+                completionHandler(photo, nil)
             }
         }
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if ratingFilter == "" || ratingFilter == nil {
             UserDefaults.standard.set("all", forKey: "ratingFilter")
         }
+        GMSPlacesClient.provideAPIKey(Constant.google_API_Key)
         return true
     }
 

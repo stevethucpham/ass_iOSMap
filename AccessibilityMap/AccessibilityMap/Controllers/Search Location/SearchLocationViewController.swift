@@ -233,9 +233,9 @@ extension SearchLocationViewController: UISearchBarDelegate {
         currentDatasource.loadFirstPage(searchQuery!) { [unowned self] (result) in
             DispatchQueue.main.async {
                 self.refreshControl.endRefreshing()
-                self.view.hideSkeleton()
                 switch result {
                 case .success(nil):
+                    self.view.hideSkeleton()
                     if self.currentDatasource.buildings.count == 0 {
                         self.setMessageViewHidden(false, message: "There is no location", isButtonHidden: true)
                     }
@@ -245,6 +245,7 @@ extension SearchLocationViewController: UISearchBarDelegate {
                     print(error?.localizedDescription ?? "empty")
                     if (error?.localizedDescription != "cancelled") {
                         self.setMessageViewHidden(false, message: error?.localizedDescription, isButtonHidden: false)
+                        self.view.hideSkeleton()
                     }
                     break
                 default:

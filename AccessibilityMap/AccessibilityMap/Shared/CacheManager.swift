@@ -22,9 +22,5 @@ struct CacheManager {
         }
         return imageFromCache
     }
-    
-//    static func setObject(value: Any?,forKey key: String) {
-//        UserDefaults.standard.set(value, forKey: <#T##String#>)
-//    }
 }
 

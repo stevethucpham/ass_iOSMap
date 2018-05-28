@@ -7,4 +7,5 @@ target 'AccessibilityMap' do
 	pod 'ReachabilitySwift'
     pod 'SkeletonView'
     pod 'ParallaxHeader', '~> 2.0.0'
+    pod 'GooglePlaces'
 end

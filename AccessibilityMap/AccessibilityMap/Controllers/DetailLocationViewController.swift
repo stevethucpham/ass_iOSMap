@@ -24,9 +24,11 @@ class DetailLocationViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         UIApplication.shared.statusBarStyle = .lightContent
         self.title = building.name.capitalized
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "sample_image"))
+        let imageView = UIImageView()
+        imageView.imageFromUrl(name: building.name, suburb: building.suburb)
+        imageView.contentMode = .scaleAspectFit
         tableView.parallaxHeader.view = imageView
-        tableView.parallaxHeader.height = 250
+        tableView.parallaxHeader.height = 300
         tableView.parallaxHeader.minimumHeight = 0
         tableView.parallaxHeader.mode = .topFill
         tableView.parallaxHeader.parallaxHeaderDidScrollHandler = { parallaxHeader in
@@ -108,6 +110,8 @@ extension DetailLocationViewController: UITableViewDataSource {
 }
 
 extension DetailLocationViewController {
+    
+    
     private func addLocation(building: Building, completion: (_ completion: Bool) -> ()) {
         let locationService = LocationService(context: Constant.managedObjectContext)
         locationService.insertLocation(building: building)

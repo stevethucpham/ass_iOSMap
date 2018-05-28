@@ -16,6 +16,7 @@
 		6A14F6DE20B82F90007738A3 /* DetailInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A14F6DC20B82F90007738A3 /* DetailInformationCell.xib */; };
 		6A14F6E120B83202007738A3 /* DetailAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A14F6DF20B83202007738A3 /* DetailAddressCell.swift */; };
 		6A14F6E220B83202007738A3 /* DetailAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A14F6E020B83202007738A3 /* DetailAddressCell.xib */; };
+		6A14F6E420BB183F007738A3 /* UIImage+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A14F6E320BB183F007738A3 /* UIImage+Network.swift */; };
 		6A372E9E20B283FD00E62CCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A372E9D20B283FD00E62CCF /* AppDelegate.swift */; };
 		6A372EA320B283FD00E62CCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A372EA120B283FD00E62CCF /* Main.storyboard */; };
 		6A372EA620B283FD00E62CCF /* AccessibilityMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A372EA420B283FD00E62CCF /* AccessibilityMap.xcdatamodeld */; };
@@ -72,6 +73,7 @@
 		6A14F6DC20B82F90007738A3 /* DetailInformationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailInformationCell.xib; sourceTree = "<group>"; };
 		6A14F6DF20B83202007738A3 /* DetailAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAddressCell.swift; sourceTree = "<group>"; };
 		6A14F6E020B83202007738A3 /* DetailAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailAddressCell.xib; sourceTree = "<group>"; };
+		6A14F6E320BB183F007738A3 /* UIImage+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Network.swift"; sourceTree = "<group>"; };
 		6A372E9A20B283FD00E62CCF /* AccessibilityMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessibilityMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A372E9D20B283FD00E62CCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A372EA220B283FD00E62CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				6A8011A120B40C4B001EA7EF /* ArrayExtension.swift */,
 				6A83125C20B640F300DDEE3A /* String.swift */,
 				6A83126520B676D300DDEE3A /* UIColorExtension.swift */,
+				6A14F6E320BB183F007738A3 /* UIImage+Network.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				6A372E9720B283FD00E62CCF /* Frameworks */,
 				6A372E9820B283FD00E62CCF /* Resources */,
 				BE80332DA27B7264F36AEEBC /* [CP] Embed Pods Frameworks */,
+				9D03564D05149132B7E72144 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -487,6 +491,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9D03564D05149132B7E72144 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AccessibilityMap/Pods-AccessibilityMap-resources.sh",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AccessibilityMap/Pods-AccessibilityMap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BE80332DA27B7264F36AEEBC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -534,6 +556,7 @@
 				6AEE6B2F20B2C03600A72BF6 /* Building.swift in Sources */,
 				6AEE6B2520B29F7600A72BF6 /* RequestService.swift in Sources */,
 				6A83125B20B6374F00DDEE3A /* SearchLocationDatasource.swift in Sources */,
+				6A14F6E420BB183F007738A3 /* UIImage+Network.swift in Sources */,
 				6A8011A520B4108F001EA7EF /* AccessibilityView.swift in Sources */,
 				6A8011AB20B4641B001EA7EF /* SearchLocationViewController.swift in Sources */,
 				6A14F6D320B80757007738A3 /* DetailInfoWindowController.swift in Sources */,

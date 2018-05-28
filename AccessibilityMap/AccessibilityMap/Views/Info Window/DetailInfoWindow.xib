@@ -29,7 +29,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample_image" translatesAutoresizingMaskIntoConstraints="NO" id="p7c-eZ-IPG">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample_image" translatesAutoresizingMaskIntoConstraints="NO" id="p7c-eZ-IPG">
                     <rect key="frame" x="10" y="25" width="125" height="125"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="p7c-eZ-IPG" secondAttribute="height" multiplier="1:1" id="eUB-iZ-xfO"/>

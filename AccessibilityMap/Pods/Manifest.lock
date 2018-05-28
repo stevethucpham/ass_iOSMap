@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (4.7.2)
   - BLMultiColorLoader (0.1.6)
+  - GoogleMaps/Base (2.7.0)
+  - GooglePlaces (2.7.0):
+    - GoogleMaps/Base (= 2.7.0)
   - ParallaxHeader (2.0.0)
   - ReachabilitySwift (3)
   - SkeletonView (1.2)
@@ -8,6 +11,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - BLMultiColorLoader
+  - GooglePlaces
   - ParallaxHeader (~> 2.0.0)
   - ReachabilitySwift
   - SkeletonView
@@ -16,6 +20,8 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - BLMultiColorLoader
+    - GoogleMaps
+    - GooglePlaces
     - ParallaxHeader
     - ReachabilitySwift
     - SkeletonView
@@ -23,10 +29,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   BLMultiColorLoader: 9208e4541a88ec12e0da5af0e3619a805ab7ff6e
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
   ParallaxHeader: fb6ee97915626454f3c029a97b424f79a777c642
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SkeletonView: d68962d45d1af038f6a110d2274b183df8f82752
 
-PODFILE CHECKSUM: 9542b45af2aed69117b45bca4637fcfe32c85c4c
+PODFILE CHECKSUM: b584f40be79d2f7a8cfcb573122c77bcc09c266c
 
 COCOAPODS: 1.5.2

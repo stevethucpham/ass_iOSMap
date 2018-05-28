@@ -35,7 +35,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Building name: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggU-A8-zkO">
-                                <rect key="frame" x="111.5" y="35" width="243.5" height="19.5"/>
+                                <rect key="frame" x="141.5" y="35" width="213.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,7 +44,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Access type" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqJ-KL-Zvp">
-                                <rect key="frame" x="111.5" y="84.5" width="243.5" height="20"/>
+                                <rect key="frame" x="141.5" y="84.5" width="213.5" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -52,17 +52,17 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="752" verticalHuggingPriority="751" image="sample_image" translatesAutoresizingMaskIntoConstraints="NO" id="If0-jb-jSE">
-                                <rect key="frame" x="10" y="35" width="91.5" height="90.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="752" verticalHuggingPriority="751" image="sample_image" translatesAutoresizingMaskIntoConstraints="NO" id="If0-jb-jSE">
+                                <rect key="frame" x="10" y="35" width="121.5" height="90.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="If0-jb-jSE" secondAttribute="height" multiplier="1:1" constant="1" id="V80-VO-8Vk"/>
+                                    <constraint firstAttribute="width" secondItem="If0-jb-jSE" secondAttribute="height" multiplier="4:3" constant="1" id="V80-VO-8Vk"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="v7y-EY-QQc" customClass="CosmosView" customModule="AccessibilityMap" customModuleProvider="target">
-                                <rect key="frame" x="111.5" y="59.5" width="243.5" height="20"/>
+                                <rect key="frame" x="141.5" y="59.5" width="213.5" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
@@ -81,7 +81,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalCompressionResistancePriority="749" text="Building Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19x-H3-KyL">
-                                <rect key="frame" x="111.5" y="109.5" width="243.5" height="40"/>
+                                <rect key="frame" x="141.5" y="109.5" width="213.5" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -116,7 +116,7 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="If0-jb-jSE" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/4" id="17h-sG-Qk6"/>
+                    <constraint firstItem="If0-jb-jSE" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/3" id="17h-sG-Qk6"/>
                     <constraint firstAttribute="bottom" secondItem="W61-xB-mM2" secondAttribute="bottom" id="Arh-t9-5Eb"/>
                     <constraint firstItem="7G7-jd-wIK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Cjc-sl-fDf"/>
                     <constraint firstAttribute="bottom" secondItem="7G7-jd-wIK" secondAttribute="bottom" id="EH0-pI-Ofx"/>

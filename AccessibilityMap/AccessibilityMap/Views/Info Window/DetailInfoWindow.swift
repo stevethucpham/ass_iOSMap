@@ -26,6 +26,7 @@ class DetailInfoWindow: UIView {
             accessRatingView.rating = Double(building.rating)
             accessTypeLabel.text = building.type
             addressLabel.text = building.address
+            locationImageView.imageFromUrl(name: building.name, suburb: building.suburb)
         }
     }
     
@@ -50,6 +51,7 @@ class DetailInfoWindow: UIView {
         containerView.layer.shadowOpacity = 1
         containerView.layer.shadowOffset = CGSize.zero
         containerView.layer.shadowRadius = 10
+        locationImageView.layer.cornerRadius = 5
         addSubview(containerView)
     }
 
