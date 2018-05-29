@@ -10,7 +10,6 @@ import UIKit
 struct Building: Decodable {
     private(set) var address: String
     private(set) var name: String
-//    private(set) var constructionYear: Int
     private(set) var blockId: String
     private(set) var longitude: Double
     private(set) var latitude: Double
@@ -22,7 +21,6 @@ struct Building: Decodable {
     enum BuildingKeys: String, CodingKey {
         case address = "street_address"
         case name = "lower_building_name"
-//        case constructionYear = "construction_year"
         case blockId = "block_id"
         case longitude = "x_coordinate"
         case latitude = "y_coordinate"

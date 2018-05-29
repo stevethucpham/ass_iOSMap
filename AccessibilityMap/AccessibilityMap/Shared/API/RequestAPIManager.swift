@@ -152,7 +152,6 @@ class RequestAPIManager {
     
     @discardableResult func request(type: RequestService, completionHandler: @escaping (_ result: Result<Data>) -> Void) -> DataRequest {
         let request = Alamofire.request("\(type.baseURL)\(type.path)", method: type.method, parameters: type.parameters, headers: type.headers).validate().responseData { handler in
-//            debugPrint("All Response Info: \(handler)")
             switch handler.result {
             case .success:
                 completionHandler(.success(handler.result.value))

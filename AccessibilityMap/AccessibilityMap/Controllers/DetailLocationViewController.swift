@@ -56,7 +56,7 @@ class DetailLocationViewController: UIViewController {
 extension DetailLocationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 120
+            return 150
         }
         return 300
     }

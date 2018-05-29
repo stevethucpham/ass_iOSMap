@@ -43,9 +43,6 @@ class SearchLocationDatasource {
             case .success(let list):
                 if let list = list {
                     let buildingList = self.filterDuplicateData(accessibilityList: list)
-//                    if list.count < self.paginationRequest.limit! {
-//                        isEnded = true
-//                    }
                     self.isEnded = list.count < self.paginationRequest.limit!
                     self.buildings.append(contentsOf: buildingList)
                     completion(.success(nil))
