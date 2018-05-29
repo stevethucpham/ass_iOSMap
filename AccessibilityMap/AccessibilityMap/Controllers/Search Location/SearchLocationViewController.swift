@@ -99,6 +99,7 @@ extension SearchLocationViewController {
     
     func onRefresh() {
         self.refreshControl.endRefreshing()
+        self.cancelSearch()
         if self.currentDatasource.isLoading {
             return
         }
@@ -111,7 +112,8 @@ extension SearchLocationViewController {
                 self.loadFirstPage()
             }
         } else {
-            print("Error")
+             self.setMessageViewHidden(false, message: "No Internet Connection", isButtonHidden: false)
+            print("No Internet connect")
         }
     }
     
@@ -120,7 +122,7 @@ extension SearchLocationViewController {
     }
     
     func loadMore() {
-
+        self.searchTableView.showLoadingFooter()
         currentDatasource.loadMore { [unowned self] (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -134,6 +136,7 @@ extension SearchLocationViewController {
                 default:
                     break
                 }
+                self.searchTableView.hideLoadingFooter()
             }
         }
     }
@@ -174,7 +177,7 @@ extension SearchLocationViewController {
     }
     
 }
-
+// MARK: Table View Delgate
 extension SearchLocationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
@@ -188,7 +191,7 @@ extension SearchLocationViewController: UITableViewDelegate {
         let scrollOffset = scrollView.contentOffset.y
         let contenHeight = scrollView.contentSize.height
         // Load more media if user scroll past 2/3 of the images
-        if scrollOffset > (contenHeight - scrollView.frame.height) * 2 / 3 && !currentDatasource.isLoading && scrollOffset > 0 {
+        if scrollOffset > (contenHeight - scrollView.frame.height) * 2 / 3 && !currentDatasource.isLoading && !currentDatasource.isEnded && scrollOffset > 0 {
             loadMore()
         }
     }
@@ -199,7 +202,7 @@ extension SearchLocationViewController: UITableViewDelegate {
         }
     }
 }
-
+// MARK: Table View Datasource
 extension SearchLocationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -213,7 +216,7 @@ extension SearchLocationViewController: UITableViewDataSource {
         return currentDatasource.buildings.count
     }
 }
-
+// MARK: Search bar delegate
 extension SearchLocationViewController: UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {

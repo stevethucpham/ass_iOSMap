@@ -2,4 +2,54 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AccessibilityMap/Controllers/Search Location/SearchLocationViewController.swift"
+            timestampString = "549265874.696051"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "loadFirstPage()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (AccessibilityMap.Result&lt;()&gt;) -&gt; () in AccessibilityMap.SearchLocationViewController.loadFirstPage() -&gt; ()"
+                  moduleName = "AccessibilityMap"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mc976/Documents/Master%20Degree/Subjects/Sem%202/Creating_Data_Driven/Assignment/AccessibilityMap/AccessibilityMap/AccessibilityMap/Controllers/Search%20Location/SearchLocationViewController.swift"
+                  timestampString = "549265874.802197"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "166"
+                  endingLineNumber = "166"
+                  offsetFromSymbolStart = "1656">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #1 : @autoclosure () throws -&gt; Swift.String in closure #1 () -&gt; () in closure #1 (AccessibilityMap.Result&lt;()&gt;) -&gt; () in AccessibilityMap.SearchLocationViewController.loadFirstPage() -&gt; ()"
+                  moduleName = "AccessibilityMap"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mc976/Documents/Master%20Degree/Subjects/Sem%202/Creating_Data_Driven/Assignment/AccessibilityMap/AccessibilityMap/AccessibilityMap/Controllers/Search%20Location/SearchLocationViewController.swift"
+                  timestampString = "549265874.805506"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "166"
+                  endingLineNumber = "166"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

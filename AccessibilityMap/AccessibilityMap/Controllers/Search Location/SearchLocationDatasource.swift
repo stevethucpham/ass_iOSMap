@@ -69,6 +69,6 @@ class SearchLocationDatasource {
         if  !isLoading && !isEnded {
             paginationRequest = paginationRequest.nextPageRequest()
             loadCurrentPage(completion: completion)
-        }
+        } 
     }
 }

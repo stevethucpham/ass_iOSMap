@@ -76,15 +76,15 @@ class RequestAPIManager {
     
     public func getPhoto(placeID: String, completionHandler: @escaping (_ result: UIImage?, _ error: Error?) ->Void) {
         GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
-            if let error = error {
+            if let _ = error {
                 // TODO: handle the error.
-                print("Error: \(error.localizedDescription)")
+//                print("Error: \(error.localizedDescription)")
                 completionHandler(nil, RequestError.noImage("No Image"))
             } else {
                 if let firstPhoto = photos?.results.first {
                     self.loadImageForMetadata(photoMetadata: firstPhoto, completionHandler: completionHandler)
                 } else {
-                    print("Error: no image")
+//                    print("Error: no image")
                     completionHandler(nil, RequestError.noImage("No Image"))
                 }
             }
@@ -96,7 +96,7 @@ class RequestAPIManager {
         GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, constrainedTo: CGSize(width: 800, height: 600), scale: 1.0) { (photo, error) in
             if let error = error {
                 // TODO: handle the error.
-                print("Error: \(error.localizedDescription)")
+//                print("Error: \(error.localizedDescription)")
                 completionHandler(nil, RequestError.noImage("No Image"))
             } else {
                 completionHandler(photo, nil)
@@ -116,7 +116,7 @@ class RequestAPIManager {
                         let buildings = try JSONDecoder().decode([Building].self, from: data!)
                         completionHandler(.success(buildings))
                     } catch let error {
-                        debugPrint(error.localizedDescription)
+//                        debugPrint(error.localizedDescription)
                         completionHandler(.failure(error))
                     }
                     break
@@ -137,7 +137,7 @@ class RequestAPIManager {
                     let buildings = try JSONDecoder().decode([Building].self, from: data!)
                     completionHandler(.success(buildings))
                 } catch let error {
-                    debugPrint(error.localizedDescription)
+//                    debugPrint(error.localizedDescription)
                     completionHandler(.failure(error))
                 }
                 break
